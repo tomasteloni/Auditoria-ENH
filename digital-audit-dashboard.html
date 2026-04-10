@@ -1,0 +1,2549 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Etiqueta Negra — Auditoría Digital Completa 2026</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <style>
+    :root {
+      --black:   #0a0a0a;
+      --dark:    #111111;
+      --card:    #1a1a1a;
+      --card2:   #202020;
+      --border:  #2a2a2a;
+      --muted:   #444444;
+      --subtle:  #888888;
+      --light:   #cccccc;
+      --white:   #f5f5f5;
+      --accent:  #c9a96e;
+      --accent2: #7a6040;
+      --green:   #4caf82;
+      --yellow:  #f5c842;
+      --red:     #e04a4a;
+      --blue:    #4a90d9;
+      --instagram: #E1306C;
+      --facebook:  #1877F2;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Arial', 'Helvetica', sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      background: var(--dark);
+      border-bottom: 1px solid var(--border);
+      padding: 28px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .header-left { display: flex; align-items: center; gap: 18px; }
+    .logo-box {
+      width: 50px; height: 50px;
+      background: var(--accent);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Georgia', serif;
+      font-size: 18px; font-weight: bold;
+      color: var(--black); letter-spacing: 1px; flex-shrink: 0;
+    }
+    .brand-name {
+      font-family: 'Georgia', serif;
+      font-size: 20px; letter-spacing: 4px;
+      text-transform: uppercase; color: var(--white); font-weight: normal;
+    }
+    .brand-sub {
+      font-size: 10px; letter-spacing: 3px;
+      color: var(--subtle); text-transform: uppercase; margin-top: 3px;
+    }
+    .header-center { text-align: center; }
+    .audit-title {
+      font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 3px;
+    }
+    .audit-period { font-size: 12px; color: var(--subtle); letter-spacing: 1px; }
+    .header-right { text-align: right; }
+    .health-score-label {
+      font-size: 10px; letter-spacing: 2px; color: var(--subtle);
+      text-transform: uppercase; margin-bottom: 4px;
+    }
+    .health-score-value {
+      font-family: 'Georgia', serif;
+      font-size: 36px; color: var(--yellow); letter-spacing: -1px; line-height: 1;
+    }
+    .health-score-max { font-size: 16px; color: var(--muted); }
+    .health-score-tag {
+      font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--yellow); margin-top: 4px;
+    }
+
+    /* ── NAV ── */
+    .nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--dark);
+      border-bottom: 1px solid var(--border);
+      padding: 0 48px;
+      display: flex; gap: 0; overflow-x: auto;
+    }
+    .nav-tab {
+      padding: 14px 20px;
+      font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--subtle); cursor: pointer; border: none; background: none;
+      border-bottom: 2px solid transparent;
+      white-space: nowrap; transition: color .2s, border-color .2s;
+    }
+    .nav-tab:hover { color: var(--light); }
+    .nav-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+    /* ── LAYOUT ── */
+    .section { padding: 48px; display: none; }
+    .section.active { display: block; }
+    .section-title {
+      font-family: 'Georgia', serif;
+      font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 6px;
+    }
+    .section-heading {
+      font-family: 'Georgia', serif;
+      font-size: 26px; font-weight: normal;
+      color: var(--white); margin-bottom: 32px;
+    }
+
+    /* ── GRID ── */
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .grid-5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+
+    /* ── CARDS ── */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 24px;
+    }
+    .card-sm { padding: 18px 20px; }
+    .card-label {
+      font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--subtle); margin-bottom: 8px;
+    }
+    .card-value {
+      font-family: 'Georgia', serif;
+      font-size: 28px; color: var(--white); line-height: 1;
+    }
+    .card-value.accent { color: var(--accent); }
+    .card-value.green  { color: var(--green); }
+    .card-value.yellow { color: var(--yellow); }
+    .card-value.red    { color: var(--red); }
+    .card-trend {
+      font-size: 11px; margin-top: 6px;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .trend-up   { color: var(--green); }
+    .trend-down { color: var(--red); }
+    .trend-flat { color: var(--subtle); }
+    .card-desc { font-size: 11px; color: var(--subtle); margin-top: 4px; }
+
+    /* ── CHART CONTAINERS ── */
+    .chart-wrap {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 24px;
+    }
+    .chart-title {
+      font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--subtle); margin-bottom: 20px;
+    }
+    .chart-canvas-wrap { position: relative; }
+
+    /* ── TABLES ── */
+    .table-wrap {
+      background: var(--card);
+      border: 1px solid var(--border);
+      overflow-x: auto;
+    }
+    .table-head {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border);
+      font-size: 10px; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--subtle);
+    }
+    table { width: 100%; border-collapse: collapse; }
+    th {
+      padding: 10px 16px; text-align: left;
+      font-size: 10px; letter-spacing: 1px; text-transform: uppercase;
+      color: var(--subtle); border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+    }
+    td {
+      padding: 10px 16px; font-size: 12px;
+      border-bottom: 1px solid var(--border); color: var(--light);
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: var(--card2); }
+    .badge {
+      display: inline-flex; align-items: center; gap: 5px;
+      padding: 2px 8px; font-size: 10px; letter-spacing: 1px;
+      border-radius: 0; font-weight: normal;
+    }
+    .badge-green  { background: rgba(76,175,130,.15); color: var(--green); border: 1px solid rgba(76,175,130,.3); }
+    .badge-yellow { background: rgba(245,200,66,.12); color: var(--yellow); border: 1px solid rgba(245,200,66,.3); }
+    .badge-red    { background: rgba(224,74,74,.15);  color: var(--red);    border: 1px solid rgba(224,74,74,.3); }
+    .badge-muted  { background: rgba(136,136,136,.1); color: var(--subtle); border: 1px solid rgba(136,136,136,.2); }
+
+    /* ── INSIGHT CARDS (green/yellow/red) ── */
+    .insights-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 24px; }
+    .insight-section { }
+    .insight-header {
+      display: flex; align-items: center; gap: 10px;
+      padding: 14px 20px;
+      font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+      font-weight: normal;
+      border-bottom: 1px solid var(--border);
+    }
+    .insight-header.green  { background: rgba(76,175,130,.08); color: var(--green); border-color: rgba(76,175,130,.2); }
+    .insight-header.yellow { background: rgba(245,200,66,.07); color: var(--yellow); border-color: rgba(245,200,66,.2); }
+    .insight-header.red    { background: rgba(224,74,74,.08);  color: var(--red);    border-color: rgba(224,74,74,.2); }
+    .insight-list {
+      background: var(--card); border: 1px solid var(--border);
+      border-top: none; list-style: none;
+    }
+    .insight-item {
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--border);
+      font-size: 12px; color: var(--light); line-height: 1.5;
+    }
+    .insight-item:last-child { border-bottom: none; }
+    .insight-item strong { color: var(--white); display: block; margin-bottom: 2px; }
+
+    /* ── SCORECARD ── */
+    .score-row {
+      display: flex; align-items: center; gap: 16px;
+      padding: 14px 0; border-bottom: 1px solid var(--border);
+    }
+    .score-row:last-child { border-bottom: none; }
+    .score-label { flex: 1; font-size: 12px; color: var(--light); }
+    .score-bar-wrap { flex: 2; height: 6px; background: var(--border); }
+    .score-bar { height: 100%; transition: width .6s ease; }
+    .score-num { width: 48px; text-align: right; font-size: 13px; color: var(--white); font-family: 'Georgia', serif; }
+    .score-status { width: 32px; text-align: center; font-size: 14px; }
+
+    /* ── MATRIX 2x2 ── */
+    .matrix-container {
+      display: grid; grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr; gap: 2px;
+      background: var(--border); aspect-ratio: 1 / 0.75;
+      min-height: 380px;
+    }
+    .matrix-quadrant {
+      padding: 20px; display: flex; flex-direction: column; gap: 8px;
+    }
+    .matrix-label {
+      font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+      font-weight: normal; margin-bottom: 4px;
+    }
+    .matrix-q1 { background: rgba(76,175,130,.08);  border-top-left-radius: 0; }
+    .matrix-q1 .matrix-label { color: var(--green); }
+    .matrix-q2 { background: rgba(74,144,217,.08); }
+    .matrix-q2 .matrix-label { color: var(--blue); }
+    .matrix-q3 { background: rgba(136,136,136,.06); }
+    .matrix-q3 .matrix-label { color: var(--subtle); }
+    .matrix-q4 { background: rgba(136,136,136,.04); }
+    .matrix-q4 .matrix-label { color: var(--muted); }
+    .matrix-tag {
+      display: inline-block; padding: 4px 10px;
+      font-size: 11px; border: 1px solid var(--border); color: var(--light);
+      background: var(--card2); cursor: default;
+    }
+    .matrix-axis-x {
+      text-align: center; font-size: 10px; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--subtle); padding: 8px 0;
+    }
+    .matrix-axis-y-wrap {
+      display: flex; align-items: center;
+    }
+    .matrix-axis-y {
+      writing-mode: vertical-rl; transform: rotate(180deg);
+      font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--subtle); padding: 0 8px;
+    }
+    .matrix-outer {
+      display: grid; grid-template-columns: auto 1fr;
+      grid-template-rows: 1fr auto; gap: 0;
+    }
+
+    /* ── ROADMAP ── */
+    .roadmap { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--border); }
+    .roadmap-phase { background: var(--card); padding: 24px; }
+    .roadmap-phase-title {
+      font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .roadmap-phase-sub { font-size: 11px; color: var(--subtle); margin-bottom: 16px; }
+    .roadmap-items { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .roadmap-item {
+      display: flex; gap: 10px; align-items: flex-start;
+      font-size: 12px; color: var(--light); line-height: 1.4;
+    }
+    .roadmap-num {
+      min-width: 20px; height: 20px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px; font-family: 'Georgia', serif;
+    }
+    .phase-q1 .roadmap-phase-title { color: var(--green); }
+    .phase-q1 .roadmap-num { background: rgba(76,175,130,.2); color: var(--green); }
+    .phase-q2 .roadmap-phase-title { color: var(--yellow); }
+    .phase-q2 .roadmap-num { background: rgba(245,200,66,.15); color: var(--yellow); }
+    .phase-q3 .roadmap-phase-title { color: var(--blue); }
+    .phase-q3 .roadmap-num { background: rgba(74,144,217,.15); color: var(--blue); }
+
+    /* ── DIVIDER ── */
+    .divider { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
+
+    /* ── COMPETITOR RADAR LEGEND ── */
+    .competitor-legend {
+      display: flex; gap: 24px; flex-wrap: wrap;
+      padding: 16px 20px; background: var(--card2);
+      border: 1px solid var(--border); border-top: none;
+    }
+    .legend-item { display: flex; align-items: center; gap: 8px; font-size: 11px; color: var(--light); }
+    .legend-dot { width: 10px; height: 10px; border-radius: 50%; }
+
+    /* ── SOCIAL SCORECARD ── */
+    .social-platform-row {
+      display: flex; align-items: center; gap: 16px;
+      padding: 14px 20px; border-bottom: 1px solid var(--border);
+    }
+    .social-platform-row:last-child { border-bottom: none; }
+    .platform-icon { font-size: 18px; width: 28px; text-align: center; }
+    .platform-name { width: 140px; font-size: 12px; color: var(--light); }
+    .platform-followers { width: 80px; font-size: 13px; color: var(--white); font-family: 'Georgia', serif; }
+    .platform-status { width: 80px; }
+    .platform-bar-wrap { flex: 1; height: 4px; background: var(--border); }
+    .platform-bar { height: 100%; }
+    .platform-score { width: 48px; text-align: right; font-size: 12px; color: var(--white); }
+
+    /* ── REVIEW SENTIMENT ── */
+    .sentiment-bar {
+      height: 10px; border-radius: 0;
+      display: flex; overflow: hidden; margin: 12px 0;
+    }
+    .sentiment-positive { background: var(--green); }
+    .sentiment-neutral  { background: var(--yellow); }
+    .sentiment-negative { background: var(--red); }
+
+    /* ── GAPS TABLE STATUS ── */
+    .status-ok   { color: var(--green); }
+    .status-warn { color: var(--yellow); }
+    .status-bad  { color: var(--red); }
+
+    /* ── FOOTER ── */
+    .footer {
+      background: var(--dark); border-top: 1px solid var(--border);
+      padding: 24px 48px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .footer-brand { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); }
+    .footer-note { font-size: 10px; color: var(--muted); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .header { padding: 20px 24px; flex-wrap: wrap; }
+      .section { padding: 28px 24px; }
+      .nav { padding: 0 16px; }
+      .grid-2, .grid-3, .grid-4, .grid-5 { grid-template-columns: 1fr 1fr; }
+      .insights-grid { grid-template-columns: 1fr; }
+      .roadmap { grid-template-columns: 1fr; }
+      .matrix-container { min-height: auto; }
+    }
+    @media (max-width: 600px) {
+      .grid-2, .grid-3, .grid-4, .grid-5 { grid-template-columns: 1fr; }
+      .header-center { display: none; }
+    }
+
+    /* ══════════════════════════════════════
+       SOCIAL FODA — SUB-NAV & PANELS
+    ══════════════════════════════════════ */
+    .social-subnav {
+      display: flex;
+      gap: 0;
+      overflow-x: auto;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 32px;
+      margin-left: -48px;
+      margin-right: -48px;
+      padding: 0 48px;
+    }
+    .social-subnav-tab {
+      padding: 12px 22px;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--subtle);
+      cursor: pointer;
+      border: none;
+      background: none;
+      border-bottom: 3px solid transparent;
+      white-space: nowrap;
+      transition: color .2s, border-color .2s;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .social-subnav-tab:hover { color: var(--light); }
+    .social-subnav-tab.active[data-net="instagram"] { color: #E1306C; border-bottom-color: #E1306C; }
+    .social-subnav-tab.active[data-net="tiktok"]    { color: #69C9D0; border-bottom-color: #69C9D0; }
+    .social-subnav-tab.active[data-net="facebook"]  { color: #1877F2; border-bottom-color: #1877F2; }
+    .social-subnav-tab.active[data-net="youtube"]   { color: #FF0000; border-bottom-color: #FF0000; }
+    .social-subnav-tab.active[data-net="linkedin"]  { color: #0A66C2; border-bottom-color: #0A66C2; }
+
+    .social-panel { display: none; }
+    .social-panel.active { display: block; }
+
+    /* KPI row */
+    .social-kpi-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+    .social-kpi {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 18px 20px;
+    }
+    .social-kpi-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--subtle); margin-bottom: 8px; }
+    .social-kpi-value { font-family: 'Georgia', serif; font-size: 26px; font-weight: normal; color: var(--white); line-height: 1; }
+    .social-kpi-value.green  { color: var(--green); }
+    .social-kpi-value.yellow { color: var(--yellow); }
+    .social-kpi-value.red    { color: var(--red); }
+    .social-kpi-value.accent { color: var(--accent); }
+    .social-kpi-sub { font-size: 11px; color: var(--subtle); margin-top: 5px; }
+
+    /* Accordion */
+    .accordion-item {
+      border: 1px solid var(--border);
+      margin-bottom: 12px;
+      overflow: hidden;
+    }
+    .accordion-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 16px 22px;
+      cursor: pointer;
+      background: var(--card);
+      user-select: none;
+      transition: background .15s;
+    }
+    .accordion-header:hover { background: var(--card2); }
+    .accordion-icon {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; flex-shrink: 0;
+    }
+    .accordion-icon.green  { background: rgba(76,175,130,.15); color: var(--green); }
+    .accordion-icon.yellow { background: rgba(245,200,66,.12); color: var(--yellow); }
+    .accordion-icon.red    { background: rgba(224,74,74,.12);  color: var(--red); }
+    .accordion-icon.gold   { background: rgba(201,169,110,.15); color: var(--accent); }
+    .accordion-title { flex: 1; font-size: 13px; font-weight: bold; letter-spacing: 1px; color: var(--white); }
+    .accordion-count { font-size: 10px; letter-spacing: 1px; color: var(--subtle); }
+    .accordion-chevron {
+      font-size: 10px; color: var(--subtle); transition: transform .25s;
+      display: inline-block;
+    }
+    .accordion-item.open .accordion-chevron { transform: rotate(90deg); }
+    .accordion-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .35s ease;
+      background: var(--dark);
+    }
+    .accordion-item.open .accordion-body { max-height: 2000px; }
+    .accordion-body-inner { padding: 20px 24px; display: flex; flex-direction: column; gap: 12px; }
+
+    /* Items dentro de accordion */
+    .foda-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+      font-size: 12px;
+      color: var(--light);
+      line-height: 1.5;
+    }
+    .foda-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .foda-bullet {
+      width: 6px; height: 6px; border-radius: 50%;
+      margin-top: 6px; flex-shrink: 0;
+    }
+    .foda-bullet.green  { background: var(--green); }
+    .foda-bullet.yellow { background: var(--yellow); }
+    .foda-bullet.red    { background: var(--red); }
+    .foda-bullet.gold   { background: var(--accent); }
+    .foda-text strong { color: var(--white); display: block; margin-bottom: 2px; font-size: 12px; }
+
+    /* Recomendaciones */
+    .rec-item {
+      display: grid;
+      grid-template-columns: auto 1fr auto auto;
+      gap: 14px;
+      align-items: start;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+    }
+    .rec-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .badge {
+      font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase;
+      padding: 3px 8px; border-radius: 2px; font-weight: bold;
+      white-space: nowrap; line-height: 1.8;
+    }
+    .badge-critica { background: rgba(224,74,74,.2);   color: #ff6b6b; border: 1px solid rgba(224,74,74,.4); }
+    .badge-alta    { background: rgba(245,200,66,.15); color: #f5c842; border: 1px solid rgba(245,200,66,.3); }
+    .badge-media   { background: rgba(74,144,217,.15); color: #4a90d9; border: 1px solid rgba(74,144,217,.3); }
+    .badge-baja    { background: rgba(136,136,136,.15);color: var(--subtle); border: 1px solid rgba(136,136,136,.2); }
+    .rec-desc { font-size: 12px; color: var(--light); line-height: 1.5; }
+    .rec-desc strong { color: var(--white); display: block; margin-bottom: 3px; font-size: 12px; }
+    .rec-meta { font-size: 10px; color: var(--subtle); white-space: nowrap; text-align: right; }
+    .rec-kpi  { font-size: 10px; color: var(--accent); white-space: nowrap; text-align: right; }
+
+    @media (max-width: 900px) {
+      .social-kpi-row { grid-template-columns: repeat(2, 1fr); }
+      .rec-item { grid-template-columns: auto 1fr; }
+      .rec-meta, .rec-kpi { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════
+     HEADER
+═══════════════════════════════════════ -->
+<header class="header">
+  <div class="header-left">
+    <div class="logo-box">EN</div>
+    <div>
+      <div class="brand-name">Etiqueta Negra</div>
+      <div class="brand-sub">Marca Textil Premium · Argentina · Est. 2003</div>
+    </div>
+  </div>
+  <div class="header-center">
+    <div class="audit-title">Auditoría Digital Completa</div>
+    <div class="audit-period">Período analizado: Q1 2026 — Marzo 2026</div>
+  </div>
+  <div class="header-right">
+    <div class="health-score-label">Score de Salud Digital</div>
+    <div class="health-score-value">55<span class="health-score-max">/100</span></div>
+    <div class="health-score-tag">Desarrollo — Potencial Alto</div>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════
+     NAVIGATION
+═══════════════════════════════════════ -->
+<nav class="nav">
+  <button class="nav-tab active" onclick="showSection('overview')">Overview</button>
+  <button class="nav-tab" onclick="showSection('web')">Web & E-commerce</button>
+  <button class="nav-tab" onclick="showSection('social')">Redes Sociales</button>
+  <button class="nav-tab" onclick="showSection('seo')">SEO & Visibilidad</button>
+  <button class="nav-tab" onclick="showSection('reputacion')">Reputación</button>
+  <button class="nav-tab" onclick="showSection('competidores')">Competidores</button>
+  <button class="nav-tab" onclick="showSection('insights')">Diagnóstico</button>
+  <button class="nav-tab" onclick="showSection('recomendaciones')">Recomendaciones</button>
+  <button class="nav-tab" onclick="showSection('scorecard')">Scorecard Final</button>
+</nav>
+
+<!-- ═══════════════════════════════════════
+     SECCIÓN 1 — OVERVIEW
+═══════════════════════════════════════ -->
+<section class="section active" id="overview">
+  <div class="section-title">Panel de Control</div>
+  <div class="section-heading">Resumen Ejecutivo</div>
+
+  <!-- KPI Cards -->
+  <div class="grid-5" style="margin-bottom:32px;">
+    <div class="card card-sm">
+      <div class="card-label">Seguidores Totales</div>
+      <div class="card-value accent">~400K</div>
+      <div class="card-trend trend-up">↑ IG + FB combinado</div>
+    </div>
+    <div class="card card-sm">
+      <div class="card-label">IG Engagement Rate</div>
+      <div class="card-value">2.8%</div>
+      <div class="card-trend trend-flat">→ Promedio de la industria</div>
+    </div>
+    <div class="card card-sm">
+      <div class="card-label">Canales Activos</div>
+      <div class="card-value yellow">3 / 7</div>
+      <div class="card-trend trend-down">↓ Ausencia en TikTok/YT/Pin</div>
+    </div>
+    <div class="card card-sm">
+      <div class="card-label">Score SEO</div>
+      <div class="card-value red">42/100</div>
+      <div class="card-trend trend-down">↓ SEO categórico débil</div>
+    </div>
+    <div class="card card-sm">
+      <div class="card-label">Reseñas Promedio</div>
+      <div class="card-value">3.8<span style="font-size:16px;color:var(--muted)">/5</span></div>
+      <div class="card-trend trend-flat">→ Yelp, Wanderlog, Fodor's</div>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <!-- Radar Chart -->
+    <div class="chart-wrap">
+      <div class="chart-title">Salud Digital por Dimensión</div>
+      <div class="chart-canvas-wrap" style="height:300px;">
+        <canvas id="radarOverview"></canvas>
+      </div>
+    </div>
+
+    <!-- Presencia por canal -->
+    <div class="chart-wrap">
+      <div class="chart-title">Presencia & Alcance por Plataforma</div>
+      <div class="chart-canvas-wrap" style="height:300px;">
+        <canvas id="barAlcance"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- Contexto del negocio -->
+  <div class="section-title" style="margin-bottom:8px;">Contexto del Negocio</div>
+  <div class="grid-3" style="margin-top:16px;">
+    <div class="card card-sm">
+      <div class="card-label">Fundación</div>
+      <div class="card-value" style="font-size:20px;">2003</div>
+      <div class="card-desc">Federico Álvarez Castillo. Nació de la crisis económica argentina como marca lifestyle premium inspirada en el polo y la cultura clásica.</div>
+    </div>
+    <div class="card card-sm">
+      <div class="card-label">Tiendas Físicas</div>
+      <div class="card-value" style="font-size:20px;">~16</div>
+      <div class="card-desc">13 en Argentina (Buenos Aires, Rosario) + NY SoHo + Bloomingdale's (LA, San Diego, Miami) + Europa (multimarca).</div>
+    </div>
+    <div class="card card-sm">
+      <div class="card-label">Coyuntura Reciente</div>
+      <div class="card-value" style="font-size:20px; color:var(--green);">-25%</div>
+      <div class="card-desc">Rebaja de precios anunciada en mayo 2025 tras eliminación de aranceles textiles por el gobierno de Milei. Oportunidad competitiva.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SECCIÓN 2 — WEB & E-COMMERCE
+═══════════════════════════════════════ -->
+<section class="section" id="web">
+  <div class="section-title">Análisis Técnico</div>
+  <div class="section-heading">Sitio Web & E-commerce</div>
+
+  <div class="grid-4" style="margin-bottom:32px;">
+    <div class="card card-sm">
+      <div class="card-label">Performance Técnica</div>
+      <div class="card-value green">74/100</div>
+      <div class="card-desc">Lazy loading, critical CSS inline, blur-up progresivo</div>
+    </div>
+    <div class="card card-sm">
+      <div class="card-label">Mobile Friendly</div>
+      <div class="card-value green">88/100</div>
+      <div class="card-desc">Bootstrap Grid, 4 breakpoints, touch-optimizado</div>
+    </div>
+    <div class="card card-sm">
+      <div class="card-label">UX / Funcionalidad</div>
+      <div class="card-value yellow">68/100</div>
+      <div class="card-desc">Quick Shop, calculadora envío, filtros. Sin reviews ni live chat.</div>
+    </div>
+    <div class="card card-sm">
+      <div class="card-label">SEO On-Page</div>
+      <div class="card-value red">45/100</div>
+      <div class="card-desc">Blog con baja actividad, rich snippets no verificados</div>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="chart-wrap">
+      <div class="chart-title">Scoring Web por Categoría</div>
+      <div class="chart-canvas-wrap" style="height:280px;">
+        <canvas id="barWeb"></canvas>
+      </div>
+    </div>
+
+    <div class="chart-wrap">
+      <div class="chart-title">Distribución de Tráfico Estimado por Dispositivo</div>
+      <div class="chart-canvas-wrap" style="height:280px;">
+        <canvas id="doughnutDevices"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <div class="section-title" style="margin-bottom:16px;">Inventario de Funcionalidades</div>
+  <div class="table-wrap">
+    <div class="table-head">Evaluación de componentes del sitio</div>
+    <table>
+      <thead>
+        <tr>
+          <th>Componente</th>
+          <th>Estado</th>
+          <th>Detalle Técnico</th>
+          <th>Impacto en UX</th>
+          <th>Prioridad de Mejora</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Lazy loading de imágenes</td><td><span class="badge badge-green">✓ Implementado</span></td><td>Blur-up progresivo, placeholders animados</td><td>Alto — reduce abandono</td><td>—</td></tr>
+        <tr><td>Mobile responsive</td><td><span class="badge badge-green">✓ Completo</span></td><td>Bootstrap Grid v4.1.3, 4 breakpoints</td><td>Alto — 80%+ tráfico mobile</td><td>—</td></tr>
+        <tr><td>WhatsApp CTA flotante</td><td><span class="badge badge-green">✓ Activo</span></td><td>Botón fijo inferior derecho</td><td>Medio — atención al cliente</td><td>—</td></tr>
+        <tr><td>Quick Shop</td><td><span class="badge badge-green">✓ Implementado</span></td><td>Vista previa de producto sin salir del listado</td><td>Alto — acorta ruta de compra</td><td>—</td></tr>
+        <tr><td>Calculadora de envío</td><td><span class="badge badge-green">✓ Activo</span></td><td>Por código postal, con estados dinámicos</td><td>Medio — reduce fricción</td><td>—</td></tr>
+        <tr><td>Filtros de productos</td><td><span class="badge badge-green">✓ Activo</span></td><td>Múltiples filtros con contador de activos</td><td>Alto — descubrimiento</td><td>—</td></tr>
+        <tr><td>Blog / Contenido editorial</td><td><span class="badge badge-yellow">⚠ Limitado</span></td><td>Estructura existe pero baja actividad publicadora</td><td>Medio — SEO + branding</td><td><span class="badge badge-yellow">Alta</span></td></tr>
+        <tr><td>Reviews de productos en sitio</td><td><span class="badge badge-red">✗ No visible</span></td><td>Sin sistema de reseñas integrado</td><td>Alto — social proof = conversión</td><td><span class="badge badge-red">Crítica</span></td></tr>
+        <tr><td>Live chat / chatbot</td><td><span class="badge badge-red">✗ Ausente</span></td><td>Solo WhatsApp, sin automatización</td><td>Medio — abandono en horas no laborables</td><td><span class="badge badge-yellow">Media</span></td></tr>
+        <tr><td>Aplicación móvil</td><td><span class="badge badge-red">✗ No existe</span></td><td>Sin app iOS/Android ni PWA identificada</td><td>Alto — retención de clientes premium</td><td><span class="badge badge-yellow">Media</span></td></tr>
+        <tr><td>Programa de fidelización</td><td><span class="badge badge-red">✗ No visible</span></td><td>Sin puntos, sin beneficios por recurrencia</td><td>Alto — lifetime value cliente</td><td><span class="badge badge-red">Crítica</span></td></tr>
+        <tr><td>Email marketing / Newsletter</td><td><span class="badge badge-yellow">⚠ Parcial</span></td><td>Captura en checkout, flujos no verificados</td><td>Alto — canal de menor costo</td><td><span class="badge badge-red">Crítica</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SECCIÓN 3 — REDES SOCIALES (FODA)
+═══════════════════════════════════════ -->
+<section class="section" id="social">
+  <div class="section-title">Análisis FODA por Red Social</div>
+  <div class="section-heading">Redes Sociales — Etiqueta Negra Hombres</div>
+
+  <!-- Sub-navegación por red -->
+  <div class="social-subnav">
+    <button class="social-subnav-tab active" data-net="instagram" onclick="showSocialNet('instagram', this)">
+      📸 Instagram
+    </button>
+    <button class="social-subnav-tab" data-net="tiktok" onclick="showSocialNet('tiktok', this)">
+      🎵 TikTok
+    </button>
+    <button class="social-subnav-tab" data-net="facebook" onclick="showSocialNet('facebook', this)">
+      👥 Facebook
+    </button>
+    <button class="social-subnav-tab" data-net="youtube" onclick="showSocialNet('youtube', this)">
+      ▶ YouTube
+    </button>
+    <button class="social-subnav-tab" data-net="linkedin" onclick="showSocialNet('linkedin', this)">
+      💼 LinkedIn
+    </button>
+  </div>
+
+  <!-- ─── PANEL: INSTAGRAM ─── -->
+  <div class="social-panel active" id="sp-instagram">
+    <div class="social-kpi-row">
+      <div class="social-kpi">
+        <div class="social-kpi-label">Seguidores</div>
+        <div class="social-kpi-value accent">169K</div>
+        <div class="social-kpi-sub">@etiquetanegra (Hombre)</div>
+      </div>
+      <div class="social-kpi">
+        <div class="social-kpi-label">Engagement Rate</div>
+        <div class="social-kpi-value green">2.8%</div>
+        <div class="social-kpi-sub">Benchmark: 2.5–3.5%</div>
+      </div>
+      <div class="social-kpi">
+        <div class="social-kpi-label">Frecuencia Posts</div>
+        <div class="social-kpi-value yellow">~4–5x/sem</div>
+        <div class="social-kpi-sub">Reels inconsistentes</div>
+      </div>
+      <div class="social-kpi">
+        <div class="social-kpi-label">Score Instagram</div>
+        <div class="social-kpi-value yellow">68/100</div>
+        <div class="social-kpi-sub">Potencial no explotado</div>
+      </div>
+    </div>
+
+    <!-- Fortalezas -->
+    <div class="accordion-item open">
+      <div class="accordion-header" onclick="toggleAccordion(this)">
+        <div class="accordion-icon green">✓</div>
+        <div class="accordion-title">Fortalezas</div>
+        <div class="accordion-count">4 puntos positivos</div>
+        <span class="accordion-chevron">▶</span>
+      </div>
+      <div class="accordion-body">
+        <div class="accordion-body-inner">
+          <div class="foda-item">
+            <div class="foda-bullet green"></div>
+            <div class="foda-text"><strong>Estética visual premium y coherente</strong>Fotografía lifestyle de alta calidad: polo, arquitectura clásica, naturaleza. Coherencia visual que refuerza el posicionamiento de marca sin esfuerzo extra.</div>
+          </div>
+          <div class="foda-item">
+            <div class="foda-bullet green"></div>
+            <div class="foda-text"><strong>Engagement rate sobre benchmark</strong>2.8% supera el mínimo de la industria (2.5%). Indica que la audiencia existente está genuinamente conectada con el contenido de marca.</div>
+          </div>
+          <div class="foda-item">
+            <div class="foda-bullet green"></div>
+            <div class="foda-text"><strong>Estrategia de cuentas separadas por género</strong>Hombre (169K) y Mujer (230K) como universos diferenciados. Permite mensajes, estética y audiencias distintas sin diluir el posicionamiento masculino.</div>
+          </div>
+          <div class="foda-item">
+            <div class="foda-bullet green"></div>
+            <div class="foda-text"><strong>Influencer marketing activo</strong>Colaboraciones documentadas con influencers de perfil premium. Amplificación de alcance con producción de terceros, sin costo de shooting propio.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Puntos Medios -->
+    <div class="accordion-item">
+      <div class="accordion-header" onclick="toggleAccordion(this)">
+        <div class="accordion-icon yellow">~</div>
+        <div class="accordion-title">Puntos Medios</div>
+        <div class="accordion-count">4 áreas con potencial</div>
+        <span class="accordion-chevron">▶</span>
+      </div>
+      <div class="accordion-body">
+        <div class="accordion-body-inner">
+          <div class="foda-item">
+            <div class="foda-bullet yellow"></div>
+            <div class="foda-text"><strong>Uso de Reels inconsistente</strong>Posts estáticos muestran consistencia editorial, pero Reels aparecen de forma irregular. El algoritmo prioriza video corto: la inconsistencia limita el alcance orgánico.</div>
+          </div>
+          <div class="foda-item">
+            <div class="foda-bullet yellow"></div>
+            <div class="foda-text"><strong>Stories sin estrategia de engagement</strong>Presencia en Stories pero sin polls, preguntas ni CTAs que generen interacción activa. Las Stories se usan como reposts del feed, no como canal de comunidad.</div>
+          </div>
+          <div class="foda-item">
+            <div class="foda-bullet yellow"></div>
+            <div class="foda-text"><strong>Colaboraciones sin frecuencia definida</strong>El influencer marketing existe pero no tiene cadencia regular. La irregularidad impide construir un pipeline de contenido predecible y escalable.</div>
+          </div>
+          <div class="foda-item">
+            <div class="foda-bullet yellow"></div>
+            <div class="foda-text"><strong>Link en bio sin optimizar</strong>Un solo enlace al sitio web en lugar de un link tree. Se pierde tráfico hacia colecciones específicas, el blog, la tienda física o campañas puntuales.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Debilidades -->
+    <div class="accordion-item">
+      <div class="accordion-header" onclick="toggleAccordion(this)">
+        <div class="accordion-icon red">✗</div>
+        <div class="accordion-title">Debilidades</div>
+        <div class="accordion-count">4 problemas críticos</div>
+        <span class="accordion-chevron">▶</span>
+      </div>
+      <div class="accordion-body">
+        <div class="accordion-body-inner">
+          <div class="foda-item">
+            <div class="foda-bullet red"></div>
+            <div class="foda-text"><strong>Sin CTAs explícitos en captions</strong>Los epígrafes describen el producto pero rara vez direccionan a la compra. "Disponible en tienda" aparece sin link ni acción concreta. Se pierde la ventana de conversión.</div>
+          </div>
+          <div class="foda-item">
+            <div class="foda-bullet red"></div>
+            <div class="foda-text"><strong>Tiempo de respuesta estimado &gt;48hs</strong>DMs y comentarios sin respuesta rápida. El algoritmo de Instagram penaliza la baja interacción y reduce el alcance orgánico de las próximas publicaciones.</div>
+          </div>
+          <div class="foda-item">
+            <div class="foda-bullet red"></div>
+            <div class="foda-text"><strong>Baja frecuencia de Reels</strong>Competidores del segmento premium argentino publican 3–4 Reels/semana. La sub-utilización del formato video limita el alcance a audiencias nuevas y corta el crecimiento de followers.</div>
+          </div>
+          <div class="foda-item">
+            <div class="foda-bullet red"></div>
+            <div class="foda-text"><strong>Hashtag strategy genérica</strong>Uso de hashtags amplios (#moda, #estilo) en lugar de nicho (#modamasculinaargentina, #fashionpremiumar). Esto reduce la probabilidad de aparecer en búsquedas específicas del target.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recomendaciones -->
+    <div class="accordion-item">
+      <div class="accordion-header" onclick="toggleAccordion(this)">
+        <div class="accordion-icon gold">→</div>
+        <div class="accordion-title">Recomendaciones</div>
+        <div class="accordion-count">5 acciones priorizadas</div>
+        <span class="accordion-chevron">▶</span>
+      </div>
+      <div class="accordion-body">
+        <div class="accordion-body-inner">
+          <div class="rec-item">
+            <span class="badge badge-critica">Crítica</span>
+            <div class="rec-desc"><strong>Activar respuesta a DMs y comentarios en &lt;24hs</strong>Designar community manager o usar herramienta de inbox unificado (Meta Business Suite). Responder al 100% de comentarios en las primeras 24hs post-publicación.</div>
+            <div class="rec-meta">📅 30 días</div>
+            <div class="rec-kpi">KPI: Engagement rate +0.5%</div>
+          </div>
+          <div class="rec-item">
+            <span class="badge badge-alta">Alta</span>
+            <div class="rec-desc"><strong>Publicar 3 Reels/semana con lifestyle content</strong>Adaptar el material fotográfico de campañas a formato vertical 9:16. Usar audio trending del segmento lifestyle/fashion. Incluir 1 Reel de producto y 2 de lifestyle por semana.</div>
+            <div class="rec-meta">📅 60 días</div>
+            <div class="rec-kpi">KPI: Alcance +40%</div>
+          </div>
+          <div class="rec-item">
+            <span class="badge badge-alta">Alta</span>
+            <div class="rec-desc"><strong>Implementar link tree en bio</strong>Crear landing de links con: Tienda Online, Nueva Colección, Lookbook, Tiendas Físicas. Actualizar con cada campaña. Medir clicks por destino mensualmente.</div>
+            <div class="rec-meta">📅 15 días</div>
+            <div class="rec-kpi">KPI: CTR bio +200%</div>
+          </div>
+          <div class="rec-item">
+            <span class="badge badge-media">Media</span>
+            <div class="rec-desc"><strong>Desarrollar set de 20 hashtags de nicho</strong>Investigar hashtags de fashion premium masculino argentino con 10K–500K posts. Dividir en 3 grupos: nicho (#modapremiumhombre), sector (#fashionargentina) y brand (#etiquetanegra).</div>
+            <div class="rec-meta">📅 45 días</div>
+            <div class="rec-kpi">KPI: Reach orgánico +25%</div>
+          </div>
+          <div class="rec-item">
+            <span class="badge badge-baja">Baja</span>
+            <div class="rec-desc"><strong>Activar Stories interactivas semanales</strong>Incorporar encuestas de estilo, preguntas abiertas y quizzes de producto 1 vez/semana. Aumentar la retención de audiencia y fortalecer la comunidad alrededor de la marca.</div>
+            <div class="rec-meta">📅 90 días</div>
+            <div class="rec-kpi">KPI: Retención Stories +30%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── PANEL: TIKTOK ─── -->
+  <div class="social-panel" id="sp-tiktok">
+    <div class="social-kpi-row">
+      <div class="social-kpi">
+        <div class="social-kpi-label">Seguidores</div>
+        <div class="social-kpi-value red">0</div>
+        <div class="social-kpi-sub">Sin cuenta activa</div>
+      </div>
+      <div class="social-kpi">
+        <div class="social-kpi-label">Engagement Rate</div>
+        <div class="social-kpi-value red">N/A</div>
+        <div class="social-kpi-sub">Benchmark: 4–6%</div>
+      </div>
+      <div class="social-kpi">
+        <div class="social-kpi-label">Videos Publicados</div>
+        <div class="social-kpi-value red">0</div>
+        <div class="social-kpi-sub">Plataforma inexplorada</div>
+      </div>
+      <div class="social-kpi">
+        <div class="social-kpi-label">Score TikTok</div>
+        <div class="social-kpi-value red">5/100</div>
+        <div class="social-kpi-sub">Ausencia total</div>
+      </div>
+    </div>
+
+    <!-- Fortalezas -->
+    <div class="accordion-item open">
+      <div class="accordion-header" onclick="toggleAccordion(this)">
+        <div class="accordion-icon green">✓</div>
+        <div class="accordion-title">Fortalezas</div>
+        <div class="accordion-count">2 ventajas estratégicas</div>
+        <span class="accordion-chevron">▶</span>
+      </div>
+      <div class="accordion-body">
+        <div class="accordion-body-inner">
+          <div class="foda-item">
+            <div class="foda-bullet green"></div>
+            <div class="foda-text"><strong>Oportunidad de ser primero en el segmento</strong>Ninguna marca de moda premium masculina argentina tiene presencia consolidada en TikTok. Quien entre primero y con consistencia capturará el posicionamiento del segmento.</div>
+          </div>
+          <div class="foda-item">
+            <div class="foda-bullet green"></div>
+            <div class="foda-text"><strong>Contenido existente altamente adaptable</strong>El material de campañas (polo, campo, arquitectura, lujo) tiene un perfil visual que performa bien en TikTok bajo los formatos de "aesthetic lifestyle" y "luxury fashion". No hay que crear desde cero.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Puntos Medios -->
+    <div class="accordion-item">
+      <div class="accordion-header" onclick="toggleAccordion(this)">
+        <div class="accordion-icon yellow">~</div>
+        <div class="accordion-title">Puntos Medios</div>
+        <div class="accordion-count">2 oportunidades a explorar</div>
+        <span class="accordion-chevron">▶</span>
+      </div>
+      <div class="accordion-body">
+        <div class="accordion-body-inner">
+          <div class="foda-item">
+            <div class="foda-bullet yellow"></div>
+            <div class="foda-text"><strong>Audiencia objetivo activa pero no saturada</strong>Hombres 25–35 están en TikTok y consumen moda, pero el segmento premium masculino argentino está sub-representado. Es un nicho accesible si se actúa rápido.</div>
+          </div>
+          <div class="foda-item">
+            <div class="foda-bullet yellow"></div>
+            <div class="foda-text"><strong>TikTok Shop como canal de venta directa</strong>La integración de e-commerce en TikTok permite vender desde el video sin salir de la app. Puede convertirse en un canal de ventas complementario al sitio web.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Debilidades -->
+    <div class="accordion-item">
+      <div class="accordion-header" onclick="toggleAccordion(this)">
+        <div class="accordion-icon red">✗</div>
+        <div class="accordion-title">Debilidades</div>
+        <div class="accordion-count">4 problemas críticos</div>
+        <span class="accordion-chevron">▶</span>
+      </div>
+      <div class="accordion-body">
+        <div class="accordion-body-inner">
+          <div class="foda-item">
+            <div class="foda-bullet red"></div>
+            <div class="foda-text"><strong>Ausencia total de cuenta activa</strong>Sin perfil verificado ni historial de contenido. TikTok penaliza las cuentas nuevas con bajo alcance inicial. Cada día de retraso dificulta el catch-up con competidores.</div>
+          </div>
+          <div class="foda-item">
+            <div class="foda-bullet red"></div>
+            <div class="foda-text"><strong>Competidores con ventaja de primero en moverse</strong>Rapsodia y Jazmin Chebar ya tienen cuentas activas con audiencia establecida en TikTok. El gap se amplía mientras Etiqueta Negra no ingresa a la plataforma.</div>
+          </div>
+          <div class="foda-item">
+            <div class="foda-bullet red"></div>
+            <div class="foda-text"><strong>Brecha generacional no atendida</strong>La audiencia 18–30 años, que construye las marcas del futuro, solo puede conocer Etiqueta Negra a través de Instagram. TikTok es el canal natural para alcanzar ese segmento.</div>
+          </div>
+          <div class="foda-item">
+            <div class="foda-bullet red"></div>
+            <div class="foda-text"><strong>Cero indexación en búsquedas de moda AR</strong>TikTok tiene motor de búsqueda propio (TikTok Search). Sin videos publicados, la marca es invisible para búsquedas de "moda masculina argentina", "ropa premium hombre" en la plataforma.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recomendaciones -->
+    <div class="accordion-item">
+      <div class="accordion-header" onclick="toggleAccordion(this)">
+        <div class="accordion-icon gold">→</div>
+        <div class="accordion-title">Recomendaciones</div>
+        <div class="accordion-count">5 acciones priorizadas</div>
+        <span class="accordion-chevron">▶</span>
+      </div>
+      <div class="accordion-body">
+        <div class="accordion-body-inner">
+          <div class="rec-item">
+            <span class="badge badge-critica">Crítica</span>
+            <div class="rec-desc"><strong>Crear cuenta verificada de TikTok en los próximos 30 días</strong>Registrar @etiquetanegra o @etiquetanegrahombre. Completar bio, link y foto de perfil. Publicar los 3 primeros videos en la semana de apertura para activar el algoritmo.</div>
+            <div class="rec-meta">📅 30 días</div>
+            <div class="rec-kpi">KPI: Cuenta activa + 1K views semana 1</div>
+          </div>
+          <div class="rec-item">
+            <span class="badge badge-critica">Crítica</span>
+            <div class="rec-desc"><strong>Publicar 3–5 videos/semana por 90 días</strong>Volumen inicial crítico para que el algoritmo evalúe la cuenta. Alternar: 2 videos de lifestyle (campo, polo, arquitectura), 2 de producto (outfits, texturas), 1 behind-the-scenes.</div>
+            <div class="rec-meta">📅 90 días</div>
+            <div class="rec-kpi">KPI: 1K seguidores, 5K views/video</div>
+          </div>
+          <div class="rec-item">
+            <span class="badge badge-alta">Alta</span>
+            <div class="rec-desc"><strong>Adaptar campañas fotográficas a formato 9:16 con audio trending</strong>Usar las imágenes de campaña como base para slideshow o transición de fotos. Agregar audio trending del segmento luxury/fashion. Costo bajo, impacto alto.</div>
+            <div class="rec-meta">📅 60 días</div>
+            <div class="rec-kpi">KPI: Engagement rate &gt;3%</div>
+          </div>
+          <div class="rec-item">
+            <span class="badge badge-alta">Alta</span>
+            <div class="rec-desc"><strong>Colaborar con 2–3 micro-influencers masculinos AR para el lanzamiento</strong>Seleccionar creadores con 50K–200K seguidores en moda/estilo masculino argentino. Un video de cada uno en la semana de lanzamiento amplifica el reach inicial orgánicamente.</div>
+            <div class="rec-meta">📅 45 días</div>
+            <div class="rec-kpi">KPI: +5K seguidores en 30 días post-lanzamiento</div>
+          </div>
+          <div class="rec-item">
+            <span class="badge badge-media">Media</span>
+            <div class="rec-desc"><strong>Activar TikTok Shop con productos seleccionados</strong>Una vez alcanzados 1K seguidores, integrar catálogo de temporada en TikTok Shop. Priorizar prendas de precio medio ($60–120 USD) con mayor potencial de impulso.</div>
+            <div class="rec-meta">📅 120 días</div>
+            <div class="rec-kpi">KPI: 20+ ventas/mes desde TikTok Shop</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── PANEL: FACEBOOK ─── -->
+  <div class="social-panel" id="sp-facebook">
+    <div class="social-kpi-row">
+      <div class="social-kpi">
+        <div class="social-kpi-label">Likes de Página</div>
+        <div class="social-kpi-value accent">137.6K</div>
+        <div class="social-kpi-sub">Audiencia principal 35–50</div>
+      </div>
+      <div class="social-kpi">
+        <div class="social-kpi-label">Engagement Rate</div>
+        <div class="social-kpi-value red">&lt;1%</div>
+        <div class="social-kpi-sub">Benchmark: 1.2–1.5%</div>
+      </div>
+      <div class="social-kpi">
+        <div class="social-kpi-label">Frecuencia Posts</div>
+        <div class="social-kpi-value yellow">~3x/sem</div>
+        <div class="social-kpi-sub">Mayormente reposts de IG</div>
+      </div>
+      <div class="social-kpi">
+        <div class="social-kpi-label">Score Facebook</div>
+        <div class="social-kpi-value yellow">52/100</div>
+        <div class="social-kpi-sub">Subutilizado</div>
+      </div>
+    </div>
+
+    <div class="accordion-item open">
+      <div class="accordion-header" onclick="toggleAccordion(this)">
+        <div class="accordion-icon green">✓</div>
+        <div class="accordion-title">Fortalezas</div>
+        <div class="accordion-count">3 puntos positivos</div>
+        <span class="accordion-chevron">▶</span>
+      </div>
+      <div class="accordion-body">
+        <div class="accordion-body-inner">
+          <div class="foda-item">
+            <div class="foda-bullet green"></div>
+            <div class="foda-text"><strong>Base de audiencia establecida (137.6K likes)</strong>Una de las páginas de moda masculina premium más grandes de Facebook en Argentina. Esta audiencia, aunque madura, tiene mayor poder adquisitivo que la de TikTok.</div>
+          </div>
+          <div class="foda-item">
+            <div class="foda-bullet green"></div>
+            <div class="foda-text"><strong>Canal ideal para contenido editorial y eventos</strong>Facebook sigue siendo efectivo para contenido de formato largo: lookbooks, presentaciones de colección, eventos de showroom. El algoritmo favorece posts con texto extenso en audiencias maduras.</div>
+          </div>
+          <div class="foda-item">
+            <div class="foda-bullet green"></div>
+            <div class="foda-text"><strong>Integración nativa con Instagram (Meta)</strong>El ecosistema Meta permite gestionar ambas cuentas desde un panel unificado, programar contenido simultáneo y retargeting cruzado sin costos adicionales de herramientas.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <div class="accordion-header" onclick="toggleAccordion(this)">
+        <div class="accordion-icon yellow">~</div>
+        <div class="accordion-title">Puntos Medios</div>
+        <div class="accordion-count">2 oportunidades</div>
+        <span class="accordion-chevron">▶</span>
+      </div>
+      <div class="accordion-body">
+        <div class="accordion-body-inner">
+          <div class="foda-item">
+            <div class="foda-bullet yellow"></div>
+            <div class="foda-text"><strong>Facebook como repositorio de contenido</strong>Actualmente funciona como espejo de Instagram sin estrategia propia. Puede convertirse en hub de contenido profundo (editorial, behind-scenes, historia de la marca) que Instagram no aloja.</div>
+          </div>
+          <div class="foda-item">
+            <div class="foda-bullet yellow"></div>
+            <div class="foda-text"><strong>Comunidades de moda AR activas en Facebook</strong>Grupos de moda masculina y compra/venta de ropa premium tienen decenas de miles de miembros. Una presencia activa en estos grupos puede derivar tráfico a la página oficial sin costo.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <div class="accordion-header" onclick="toggleAccordion(this)">
+        <div class="accordion-icon red">✗</div>
+        <div class="accordion-title">Debilidades</div>
+        <div class="accordion-count">5 problemas identificados</div>
+        <span class="accordion-chevron">▶</span>
+      </div>
+      <div class="accordion-body">
+        <div class="accordion-body-inner">
+          <div class="foda-item">
+            <div class="foda-bullet red"></div>
+            <div class="foda-text"><strong>Engagement rate por debajo del benchmark (&lt;1%)</strong>El benchmark de Facebook fashion es 1.2–1.5%. Un engagement menor indica que la audiencia ve el contenido pero no interactúa, señal de desalineación entre contenido y audiencia.</div>
+          </div>
+          <div class="foda-item">
+            <div class="foda-bullet red"></div>
+            <div class="foda-text"><strong>Sin estrategia diferenciada de Instagram</strong>El mismo contenido publicado en ambas plataformas sin adaptación. Facebook requiere formatos distintos: texto más largo, links clicables en caption, video nativo (no Reels).</div>
+          </div>
+          <div class="foda-item">
+            <div class="foda-bullet red"></div>
+            <div class="foda-text"><strong>Alcance orgánico estructuralmente limitado</strong>El algoritmo de Facebook prioriza publicidad paga sobre contenido orgánico de páginas. Sin inversión en Meta Ads, el alcance real de cada post es &lt;5% de los seguidores.</div>
+          </div>
+          <div class="foda-item">
+            <div class="foda-bullet red"></div>
+            <div class="foda-text"><strong>Sin Facebook Shops activo</strong>La tienda de Facebook Shops no está integrada con el catálogo de ecommerce. Se pierde la posibilidad de venta directa desde la plataforma y el retargeting basado en vistas de producto.</div>
+          </div>
+          <div class="foda-item">
+            <div class="foda-bullet red"></div>
+            <div class="foda-text"><strong>Tiempo de respuesta a mensajes &gt;48hs</strong>Facebook muestra públicamente el tiempo de respuesta en el perfil. Un tiempo &gt;24hs hace perder el badge "Muy receptivo" y desalienta consultas de potenciales compradores.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <div class="accordion-header" onclick="toggleAccordion(this)">
+        <div class="accordion-icon gold">→</div>
+        <div class="accordion-title">Recomendaciones</div>
+        <div class="accordion-count">5 acciones priorizadas</div>
+        <span class="accordion-chevron">▶</span>
+      </div>
+      <div class="accordion-body">
+        <div class="accordion-body-inner">
+          <div class="rec-item">
+            <span class="badge badge-alta">Alta</span>
+            <div class="rec-desc"><strong>Integrar catálogo de ecommerce a Facebook Shops</strong>Conectar el catálogo de Shopify/WooCommerce a Meta Commerce Manager. Habilitar etiquetado de productos en posts y Stories. El catálogo también alimenta los anuncios de Dynamic Ads.</div>
+            <div class="rec-meta">📅 30 días</div>
+            <div class="rec-kpi">KPI: +15% tráfico desde FB al ecommerce</div>
+          </div>
+          <div class="rec-item">
+            <span class="badge badge-alta">Alta</span>
+            <div class="rec-desc"><strong>Activar respuesta automática + tiempo de respuesta &lt;4hs</strong>Configurar respuesta automática en Messenger para consultas fuera de horario. Asignar responsable de atención entre 9–20hs. Meta otorga badge "Muy receptivo" con &lt;1hs de respuesta.</div>
+            <div class="rec-meta">📅 15 días</div>
+            <div class="rec-kpi">KPI: Badge "Muy receptivo" activo</div>
+          </div>
+          <div class="rec-item">
+            <span class="badge badge-media">Media</span>
+            <div class="rec-desc"><strong>Crear contenido exclusivo para Facebook</strong>Lookbooks de temporada completos, behind-the-scenes del proceso de diseño, historia de colecciones. Formato álbum de fotos (alto reach orgánico en FB) y video nativo &gt;3 minutos.</div>
+            <div class="rec-meta">📅 60 días</div>
+            <div class="rec-kpi">KPI: Engagement rate 1.2%</div>
+          </div>
+          <div class="rec-item">
+            <span class="badge badge-media">Media</span>
+            <div class="rec-desc"><strong>Invertir $200–500 USD/mes en Meta Ads de remarketing</strong>Retargeting a visitantes del ecommerce que no compraron (últimos 30 días). Audiencias similares a compradores actuales. Carrousel de productos con precio y CTA "Comprar ahora".</div>
+            <div class="rec-meta">📅 45 días</div>
+            <div class="rec-kpi">KPI: ROAS &gt;3x</div>
+          </div>
+          <div class="rec-item">
+            <span class="badge badge-baja">Baja</span>
+            <div class="rec-desc"><strong>Crear grupo privado "Club Etiqueta Negra"</strong>Grupo exclusivo para clientes con compras verificadas. Primeras miradas de nuevas colecciones, descuentos exclusivos y acceso a eventos. Fortalece la fidelización y genera boca a boca.</div>
+            <div class="rec-meta">📅 90 días</div>
+            <div class="rec-kpi">KPI: 500 miembros activos en 6 meses</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── PANEL: YOUTUBE ─── -->
+  <div class="social-panel" id="sp-youtube">
+    <div class="social-kpi-row">
+      <div class="social-kpi">
+        <div class="social-kpi-label">Suscriptores</div>
+        <div class="social-kpi-value red">0</div>
+        <div class="social-kpi-sub">Sin canal activo</div>
+      </div>
+      <div class="social-kpi">
+        <div class="social-kpi-label">Watch Time / Mes</div>
+        <div class="social-kpi-value red">0 min</div>
+        <div class="social-kpi-sub">Benchmark: &gt;100 min/mes</div>
+      </div>
+      <div class="social-kpi">
+        <div class="social-kpi-label">Videos Publicados</div>
+        <div class="social-kpi-value red">0</div>
+        <div class="social-kpi-sub">Canal inexistente</div>
+      </div>
+      <div class="social-kpi">
+        <div class="social-kpi-label">Score YouTube</div>
+        <div class="social-kpi-value red">3/100</div>
+        <div class="social-kpi-sub">Ausencia total</div>
+      </div>
+    </div>
+
+    <div class="accordion-item open">
+      <div class="accordion-header" onclick="toggleAccordion(this)">
+        <div class="accordion-icon green">✓</div>
+        <div class="accordion-title">Fortalezas</div>
+        <div class="accordion-count">2 ventajas de partida</div>
+        <span class="accordion-chevron">▶</span>
+      </div>
+      <div class="accordion-body">
+        <div class="accordion-body-inner">
+          <div class="foda-item">
+            <div class="foda-bullet green"></div>
+            <div class="foda-text"><strong>Contenido de marca ideal para video long-form</strong>El universo de polo, campo, arquitectura clásica y artesanía textil ofrece material natural para series documentales y contenido editorial que no tiene límite de duración en YouTube.</div>
+          </div>
+          <div class="foda-item">
+            <div class="foda-bullet green"></div>
+            <div class="foda-text"><strong>Vacío competitivo en el segmento</strong>Ninguna marca de moda premium masculina argentina tiene un canal de YouTube activo y consistente. Quien entre primero con calidad de producción establece el estándar del segmento.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <div class="accordion-header" onclick="toggleAccordion(this)">
+        <div class="accordion-icon yellow">~</div>
+        <div class="accordion-title">Puntos Medios</div>
+        <div class="accordion-count">2 oportunidades</div>
+        <span class="accordion-chevron">▶</span>
+      </div>
+      <div class="accordion-body">
+        <div class="accordion-body-inner">
+          <div class="foda-item">
+            <div class="foda-bullet yellow"></div>
+            <div class="foda-text"><strong>Material fotográfico adaptable a video</strong>Las campañas fotográficas existentes pueden transformarse en slideshows y b-roll para videos de menor costo de producción. No es necesario iniciar desde cero.</div>
+          </div>
+          <div class="foda-item">
+            <div class="foda-bullet yellow"></div>
+            <div class="foda-text"><strong>SEO de YouTube para moda masculina AR</strong>YouTube es el segundo motor de búsqueda del mundo. Los términos "moda masculina argentina premium" y "estilo hombre Argentina" tienen baja competencia y tráfico potencial constante.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <div class="accordion-header" onclick="toggleAccordion(this)">
+        <div class="accordion-icon red">✗</div>
+        <div class="accordion-title">Debilidades</div>
+        <div class="accordion-count">4 problemas críticos</div>
+        <span class="accordion-chevron">▶</span>
+      </div>
+      <div class="accordion-body">
+        <div class="accordion-body-inner">
+          <div class="foda-item">
+            <div class="foda-bullet red"></div>
+            <div class="foda-text"><strong>Sin canal de YouTube activo</strong>La ausencia es total. Un canal inexistente no puede monetizarse, no puede aparecer en búsquedas y no contribuye al SEO de la marca. Cada mes sin canal es tráfico de búsqueda perdido.</div>
+          </div>
+          <div class="foda-item">
+            <div class="foda-bullet red"></div>
+            <div class="foda-text"><strong>Watch time cero (inelegible para monetización)</strong>Para monetizar se requieren 1.000 suscriptores y 4.000 horas de watch time. La demora en iniciar aleja ese umbral. Además, YouTube prioriza canales con historial de watch time para distribución.</div>
+          </div>
+          <div class="foda-item">
+            <div class="foda-bullet red"></div>
+            <div class="foda-text"><strong>Competidores internacionales dominan el espacio</strong>Ralph Lauren, Tommy Hilfiger y Polo Ralph Lauren tienen canales con millones de suscriptores y años de historial. Ocupan los primeros resultados de búsqueda de moda premium masculina en español.</div>
+          </div>
+          <div class="foda-item">
+            <div class="foda-bullet red"></div>
+            <div class="foda-text"><strong>Ausencia en el segundo buscador más grande</strong>YouTube como motor de búsqueda procesa 3 mil millones de búsquedas por mes. Sin presencia, la marca no aparece en búsquedas de video de moda, estilo y compra de ropa masculina.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <div class="accordion-header" onclick="toggleAccordion(this)">
+        <div class="accordion-icon gold">→</div>
+        <div class="accordion-title">Recomendaciones</div>
+        <div class="accordion-count">5 acciones priorizadas</div>
+        <span class="accordion-chevron">▶</span>
+      </div>
+      <div class="accordion-body">
+        <div class="accordion-body-inner">
+          <div class="rec-item">
+            <span class="badge badge-critica">Crítica</span>
+            <div class="rec-desc"><strong>Crear canal de YouTube y publicar 5 videos de lanzamiento</strong>Crear y verificar el canal en los próximos 30 días. Los primeros 5 videos definen la identidad: 2 lookbooks de temporada, 2 behind-the-scenes de producción, 1 historia de la marca.</div>
+            <div class="rec-meta">📅 60 días</div>
+            <div class="rec-kpi">KPI: Canal activo + 200 suscriptores</div>
+          </div>
+          <div class="rec-item">
+            <span class="badge badge-alta">Alta</span>
+            <div class="rec-desc"><strong>Lanzar serie "El Guardarropa del Hombre EN"</strong>6–8 episodios de 5–10 minutos: cómo combinar prendas de temporada, guía de estilo por ocasión, cuidado de materiales premium. Formato práctico con alta búsqueda orgánica.</div>
+            <div class="rec-meta">📅 90 días</div>
+            <div class="rec-kpi">KPI: 1K views/episodio, 30% de retención</div>
+          </div>
+          <div class="rec-item">
+            <span class="badge badge-alta">Alta</span>
+            <div class="rec-desc"><strong>Optimizar SEO de cada video desde el día 1</strong>Título con keyword principal en los primeros 60 caracteres. Descripción de 300+ palabras con keywords secundarias. Capítulos marcados con timestamps. Tags específicos del segmento.</div>
+            <div class="rec-meta">📅 60 días</div>
+            <div class="rec-kpi">KPI: Rank top 5 en 3 keywords de nicho</div>
+          </div>
+          <div class="rec-item">
+            <span class="badge badge-media">Media</span>
+            <div class="rec-desc"><strong>Publicar YouTube Shorts semanales</strong>Adaptar TikToks y Reels de Instagram a formato Shorts (&lt;60 seg). Los Shorts aceleran el crecimiento de suscriptores para un canal nuevo. Publicar 3–5 Shorts/semana en los primeros 6 meses.</div>
+            <div class="rec-meta">📅 90 días</div>
+            <div class="rec-kpi">KPI: 500 suscriptores en 6 meses</div>
+          </div>
+          <div class="rec-item">
+            <span class="badge badge-media">Media</span>
+            <div class="rec-desc"><strong>Planificar monetización desde el inicio</strong>Estructurar el calendario de contenido para alcanzar 1.000 suscriptores y 4.000 horas de watch time en 12 meses. Habilitar Super Thanks y membresías una vez elegible.</div>
+            <div class="rec-meta">📅 12 meses</div>
+            <div class="rec-kpi">KPI: Umbral de monetización alcanzado</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── PANEL: LINKEDIN ─── -->
+  <div class="social-panel" id="sp-linkedin">
+
+    <!-- Alerta dato crítico verificado -->
+    <div style="background:rgba(224,74,74,.08); border:1px solid rgba(224,74,74,.25); padding:14px 20px; margin-bottom:24px; display:flex; align-items:flex-start; gap:12px;">
+      <span style="color:var(--red); font-size:18px; flex-shrink:0;">⚠</span>
+      <div>
+        <div style="color:var(--red); font-size:11px; letter-spacing:2px; text-transform:uppercase; font-weight:bold; margin-bottom:4px;">Problema Crítico de Branding — Dato Verificado</div>
+        <div style="color:var(--light); font-size:12px; line-height:1.6;">La página está registrada como <strong style="color:var(--white);">"Compañía Argentina de Diseño S.A."</strong>, no como <strong style="color:var(--white);">"Etiqueta Negra"</strong>. Un usuario que busca la marca en LinkedIn no la encuentra. Esto es un freno de descubrimiento orgánico fundamental que debe corregirse antes que cualquier otra acción. <em style="color:var(--subtle);">Fuente: URL real linkedin.com/company/compañía-argentina-de-diseño-s-a/</em></div>
+      </div>
+    </div>
+
+    <div class="social-kpi-row">
+      <div class="social-kpi">
+        <div class="social-kpi-label">Seguidores Verificados</div>
+        <div class="social-kpi-value red">3.019</div>
+        <div class="social-kpi-sub">Dato real · Fuente: LinkedIn</div>
+      </div>
+      <div class="social-kpi">
+        <div class="social-kpi-label">Ratio IG → LinkedIn</div>
+        <div class="social-kpi-value red">1.8%</div>
+        <div class="social-kpi-sub">169K IG · solo 3K LI</div>
+      </div>
+      <div class="social-kpi">
+        <div class="social-kpi-label">Empleados Listados</div>
+        <div class="social-kpi-value yellow">155</div>
+        <div class="social-kpi-sub">Potencial de employee advocacy</div>
+      </div>
+      <div class="social-kpi">
+        <div class="social-kpi-label">Score LinkedIn</div>
+        <div class="social-kpi-value red">18/100</div>
+        <div class="social-kpi-sub">Perfil existe · sin estrategia</div>
+      </div>
+    </div>
+
+    <!-- Fortalezas -->
+    <div class="accordion-item open">
+      <div class="accordion-header" onclick="toggleAccordion(this)">
+        <div class="accordion-icon green">✓</div>
+        <div class="accordion-title">Fortalezas</div>
+        <div class="accordion-count">4 activos reales verificados</div>
+        <span class="accordion-chevron">▶</span>
+      </div>
+      <div class="accordion-body">
+        <div class="accordion-body-inner">
+          <div class="foda-item">
+            <div class="foda-bullet green"></div>
+            <div class="foda-text"><strong>Página activa con descripción de marca redactada</strong>La página tiene descripción en inglés con filosofía clara: <em>"simple cuts, limited color palettes and fusion of noble materials"</em>. El copy es diferenciador y tiene calidad editorial. Es una base sólida para construir sobre ella, sin partir de cero.</div>
+          </div>
+          <div class="foda-item">
+            <div class="foda-bullet green"></div>
+            <div class="foda-text"><strong>Historia fundacional documentada en el perfil</strong>Federico Álvarez Castillo, 2003, nacida en la crisis económica argentina: <em>"constant evolution since inception, blending noble materials from cotton to leather and silk to steel."</em> Esta narrativa está en el perfil y es genuinamente diferenciadora para el público de LinkedIn.</div>
+          </div>
+          <div class="foda-item">
+            <div class="foda-bullet green"></div>
+            <div class="foda-text"><strong>155 empleados listados = red de embajadores potenciales</strong>Cada empleado que comparte contenido multiplica el alcance orgánico sin costo publicitario. Con 155 empleados activos, un programa de employee advocacy puede generar más alcance que la página sola. Benchmark: 10–15% de empleados activos en LI = 15–23 amplificadores.</div>
+          </div>
+          <div class="foda-item">
+            <div class="foda-bullet green"></div>
+            <div class="foda-text"><strong>Expansión internacional verificable como contenido de alto valor</strong>NY SoHo, Bloomingdale's (LA, SD, Miami), Europa multimarca. Estos hitos son exactamente el tipo de contenido que genera el mayor engagement en LinkedIn: logros de negocio, expansión, presencia global. No se están comunicando.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Puntos Medios -->
+    <div class="accordion-item">
+      <div class="accordion-header" onclick="toggleAccordion(this)">
+        <div class="accordion-icon yellow">~</div>
+        <div class="accordion-title">Puntos Medios</div>
+        <div class="accordion-count">3 oportunidades con base real</div>
+        <span class="accordion-chevron">▶</span>
+      </div>
+      <div class="accordion-body">
+        <div class="accordion-body-inner">
+          <div class="foda-item">
+            <div class="foda-bullet yellow"></div>
+            <div class="foda-text"><strong>3.019 seguidores: base pequeña pero existente</strong>No es cero. Hay una audiencia inicial que eligió seguir la página. Con contenido regular, esos 3K seguidores pueden generar distribución orgánica y atraer más. El benchmark de marcas premium AR de tamaño similar en LinkedIn es 8K–15K seguidores: el gap es cerrable en 6–12 meses.</div>
+          </div>
+          <div class="foda-item">
+            <div class="foda-bullet yellow"></div>
+            <div class="foda-text"><strong>Industria "Retail / Apparel and Fashion" correctamente clasificada</strong>La categorización sectorial es correcta y ayuda al algoritmo de LinkedIn a distribuir el contenido a audiencias relevantes: compradores de moda, directores de retail, periodistas especializados y potenciales socios comerciales internacionales.</div>
+          </div>
+          <div class="foda-item">
+            <div class="foda-bullet yellow"></div>
+            <div class="foda-text"><strong>Competidores listados sin ventaja significativa en LinkedIn</strong>KOSIUKO, María Cher, PRÜNE, Rapsodia y 47 Street aparecen como similares. Ninguno tiene presencia dominante en LinkedIn. La primera marca del segmento que construya autoridad consistente captura el posicionamiento de referente de la industria en la plataforma.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Debilidades -->
+    <div class="accordion-item">
+      <div class="accordion-header" onclick="toggleAccordion(this)">
+        <div class="accordion-icon red">✗</div>
+        <div class="accordion-title">Debilidades</div>
+        <div class="accordion-count">6 problemas críticos verificados</div>
+        <span class="accordion-chevron">▶</span>
+      </div>
+      <div class="accordion-body">
+        <div class="accordion-body-inner">
+          <div class="foda-item">
+            <div class="foda-bullet red"></div>
+            <div class="foda-text"><strong>Nombre registrado como razón social, no como marca comercial</strong>La URL es <em>/company/compañía-argentina-de-diseño-s-a/</em>. Buscar "Etiqueta Negra" en LinkedIn no garantiza encontrar esta página. Es el primer freno de descubrimiento para clientes, socios, prensa y potenciales empleados. <em style="color:var(--subtle);">Dato verificado.</em></div>
+          </div>
+          <div class="foda-item">
+            <div class="foda-bullet red"></div>
+            <div class="foda-text"><strong>3.019 seguidores: ratio 1.8% vs audiencia de Instagram</strong>Con 169K seguidores en Instagram, solo 1.8% también sigue LinkedIn. El benchmark para marcas premium de moda con presencia internacional es 8–15% de conversión entre plataformas. Gap estimado: 10.000–22.000 seguidores que deberían estar en LinkedIn pero no están.</div>
+          </div>
+          <div class="foda-item">
+            <div class="foda-bullet red"></div>
+            <div class="foda-text"><strong>Sin actividad de posts verificable públicamente</strong>La página de posts redirigió al login de LinkedIn, señal de actividad mínima o nula. Las páginas activas tienen posts indexados públicamente. La ausencia de indexación implica frecuencia de publicación extremadamente baja que el algoritmo penaliza con menor distribución.</div>
+          </div>
+          <div class="foda-item">
+            <div class="foda-bullet red"></div>
+            <div class="foda-text"><strong>Descripción solo en inglés, sin versión en español</strong>La descripción está redactada únicamente en inglés, lo que puede alienar a la mayoría de los 3K seguidores, que son probablemente argentinos hispanoparlantes. Una marca premium AR debe tener su descripción en el idioma de su audiencia principal.</div>
+          </div>
+          <div class="foda-item">
+            <div class="foda-bullet red"></div>
+            <div class="foda-text"><strong>Sin programa de employee advocacy activo</strong>155 empleados listados pero sin evidencia de contenido amplificado desde perfiles personales. Si solo el 10% compartiera 1 post/mes, generaría 1.500–3.000 impresiones adicionales mensuales sin costo de pauta. Este recurso está completamente desaprovechado.</div>
+          </div>
+          <div class="foda-item">
+            <div class="foda-bullet red"></div>
+            <div class="foda-text"><strong>Hitos comerciales de alto valor no comunicados</strong>La marca tiene logros extraordinarios (Bloomingdale's, NY SoHo, 22 años, crisis 2003, cobertura en WWD/Interview) que no aparecen como posts. Son exactamente el contenido que genera mayor engagement en LinkedIn: logros de negocio, expansión internacional, historia de resiliencia. No se están aprovechando.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recomendaciones -->
+    <div class="accordion-item">
+      <div class="accordion-header" onclick="toggleAccordion(this)">
+        <div class="accordion-icon gold">→</div>
+        <div class="accordion-title">Recomendaciones</div>
+        <div class="accordion-count">6 acciones priorizadas</div>
+        <span class="accordion-chevron">▶</span>
+      </div>
+      <div class="accordion-body">
+        <div class="accordion-body-inner">
+          <div class="rec-item">
+            <span class="badge badge-critica">Crítica</span>
+            <div class="rec-desc"><strong>Cambiar nombre de página de razón social a "Etiqueta Negra"</strong>Solicitar a LinkedIn el cambio de nombre de "Compañía Argentina de Diseño S.A." a "Etiqueta Negra". Actualizar la URL personalizada a /etiqueta-negra. Sin este cambio el resto de las acciones tiene impacto reducido por baja descubribilidad orgánica.</div>
+            <div class="rec-meta">📅 7 días</div>
+            <div class="rec-kpi">KPI: "Etiqueta Negra" → resultado top en LinkedIn Search</div>
+          </div>
+          <div class="rec-item">
+            <span class="badge badge-critica">Crítica</span>
+            <div class="rec-desc"><strong>Completar página al 100%: banner, descripción bilingüe, ubicaciones</strong>Banner de campaña (1584×396px). Descripción en español + inglés con historia, posicionamiento e internacionalización. Agregar todas las ubicaciones: Buenos Aires (Martínez, Dardo Rocha 1366), NY SoHo, LA, Miami, SD. Tagline. Logo HD. Founded: 2003.</div>
+            <div class="rec-meta">📅 15 días</div>
+            <div class="rec-kpi">KPI: LinkedIn Page Score 100% completitud</div>
+          </div>
+          <div class="rec-item">
+            <span class="badge badge-alta">Alta</span>
+            <div class="rec-desc"><strong>Publicar 3 posts/semana con hitos verificados de la marca</strong>Semana 1: Historia de fundación (2003, crisis argentina). Semana 2: Entrada a Bloomingdale's. Semana 3: Cobertura en WWD. Semana 4: Proceso de selección de materiales nobles. Formato: foto de campaña + texto 400–800 palabras. Hashtags: #fashionargentina #menpremiumfashion #luxuryfashion.</div>
+            <div class="rec-meta">📅 30 días</div>
+            <div class="rec-kpi">KPI: +500 seguidores en 60 días, 1.5% engagement rate</div>
+          </div>
+          <div class="rec-item">
+            <span class="badge badge-alta">Alta</span>
+            <div class="rec-desc"><strong>Lanzar programa de employee advocacy con los 155 empleados</strong>Comunicar internamente el relanzamiento de la página LinkedIn. Pedir que sigan la página y compartan el primer post de lanzamiento. Crear 3–5 plantillas de contenido listas para compartir. El alcance colectivo puede superar 20.000 impresiones en la primera semana sin costo de pauta.</div>
+            <div class="rec-meta">📅 30 días</div>
+            <div class="rec-kpi">KPI: 80% empleados siguiendo la página, alcance orgánico ×8</div>
+          </div>
+          <div class="rec-item">
+            <span class="badge badge-media">Media</span>
+            <div class="rec-desc"><strong>Redirigir audiencia de IG y FB hacia LinkedIn</strong>Publicar en Instagram y Facebook un post invitando a seguir la página renovada de LinkedIn. Agregar LinkedIn al link tree del bio de Instagram. Con un 5% de conversión de 169K seguidores de IG → +8.450 seguidores nuevos potenciales en LinkedIn.</div>
+            <div class="rec-meta">📅 45 días</div>
+            <div class="rec-kpi">KPI: +3.000 nuevos seguidores desde otras redes en 60 días</div>
+          </div>
+          <div class="rec-item">
+            <span class="badge badge-media">Media</span>
+            <div class="rec-desc"><strong>Activar perfil personal del fundador como thought leader</strong>Los perfiles personales tienen 5–10× más alcance que las páginas de empresa en LinkedIn. Una historia del fundador sobre los 22 años de la marca, la crisis de 2003 y la expansión a NY puede alcanzar 50.000–100.000 impresiones orgánicas en un solo post bien ejecutado.</div>
+            <div class="rec-meta">📅 60 días</div>
+            <div class="rec-kpi">KPI: 1 post con +10K impresiones, +1K seguidores en perfil personal</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ═══════════════════════════════════════
+     SECCIÓN 4 — SEO & VISIBILIDAD
+═══════════════════════════════════════ -->
+<section class="section" id="seo">
+  <div class="section-title">Posicionamiento Orgánico</div>
+  <div class="section-heading">SEO & Visibilidad Digital</div>
+
+  <div class="grid-4" style="margin-bottom:32px;">
+    <div class="card card-sm">
+      <div class="card-label">Score SEO Estimado</div>
+      <div class="card-value red">42/100</div>
+      <div class="card-desc">Basado en análisis de contenido, backlinks y ausencia en canales</div>
+    </div>
+    <div class="card card-sm">
+      <div class="card-label">Búsquedas Branded</div>
+      <div class="card-value green">Fuerte</div>
+      <div class="card-desc">"Etiqueta Negra argentina" → ranking top. Marca bien posicionada en búsquedas directas.</div>
+    </div>
+    <div class="card card-sm">
+      <div class="card-label">Búsquedas Categóricas</div>
+      <div class="card-value red">Débil</div>
+      <div class="card-desc">"Ropa polo argentina", "moda premium masculina" → sin visibilidad identificada.</div>
+    </div>
+    <div class="card card-sm">
+      <div class="card-label">Backlinks de Calidad</div>
+      <div class="card-value green">Alto</div>
+      <div class="card-desc">WWD, Interview Magazine, La Nación, Fodor's, Clarín. Autoridad editorial sólida.</div>
+    </div>
+  </div>
+
+  <div class="grid-2" style="margin-bottom:32px;">
+    <div class="chart-wrap">
+      <div class="chart-title">Visibilidad Estimada por Tipo de Búsqueda</div>
+      <div class="chart-canvas-wrap" style="height:280px;">
+        <canvas id="barSEO"></canvas>
+      </div>
+    </div>
+    <div class="chart-wrap">
+      <div class="chart-title">Presencia en Canales de Descubrimiento</div>
+      <div class="chart-canvas-wrap" style="height:280px;">
+        <canvas id="radarSEO"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title" style="margin-bottom:16px;">Mapa de Presencia Online</div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Canal de Descubrimiento</th><th>Presencia</th><th>Calidad</th><th>Notas</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Búsquedas branded Google</td><td><span class="badge badge-green">✓ Fuerte</span></td><td>Alta</td><td>Dominio de la primera página para nombre de marca</td></tr>
+        <tr><td>Backlinks editoriales</td><td><span class="badge badge-green">✓ Sólidos</span></td><td>Muy Alta</td><td>WWD, Interview Magazine, La Nación, Clarín, Fodor's, Habitually Chic</td></tr>
+        <tr><td>Directorios de moda</td><td><span class="badge badge-green">✓ Presencia</span></td><td>Media</td><td>StyleTotal, Fashion United Argentina, Indagare</td></tr>
+        <tr><td>Marketplaces</td><td><span class="badge badge-yellow">⚠ Parcial</span></td><td>Media</td><td>Amazon, Poshmark, eBay, MercadoLibre — sin control de brand</td></tr>
+        <tr><td>Google My Business</td><td><span class="badge badge-yellow">⚠ No verificado</span></td><td>—</td><td>Múltiples locales. Gestión de GMB crítica para búsquedas locales</td></tr>
+        <tr><td>SEO categórico</td><td><span class="badge badge-red">✗ Débil</span></td><td>Baja</td><td>"Moda polo", "ropa premium argentina" — sin ranking identificado</td></tr>
+        <tr><td>Blog / Contenido SEO</td><td><span class="badge badge-red">✗ Mínimo</span></td><td>Baja</td><td>Estructura existe en el sitio pero sin estrategia de publicación activa</td></tr>
+        <tr><td>YouTube SEO</td><td><span class="badge badge-red">✗ Inexistente</span></td><td>Nula</td><td>Sin canal oficial = 0 visibilidad en búsquedas de video</td></tr>
+        <tr><td>Pinterest SEO</td><td><span class="badge badge-red">✗ Mínimo</span></td><td>Nula</td><td>Solo 1 pin encontrado en AR.pinterest.com</td></tr>
+        <tr><td>Google Shopping</td><td><span class="badge badge-yellow">⚠ No verificado</span></td><td>—</td><td>E-commerce propio — potencial no confirmado</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SECCIÓN 5 — REPUTACIÓN
+═══════════════════════════════════════ -->
+<section class="section" id="reputacion">
+  <div class="section-title">Gestión de Reputación</div>
+  <div class="section-heading">Reputación Online & Reviews</div>
+
+  <div class="grid-4" style="margin-bottom:32px;">
+    <div class="card card-sm">
+      <div class="card-label">Score Reputación Digital</div>
+      <div class="card-value yellow">64/100</div>
+      <div class="card-desc">Basado en Yelp, Wanderlog, Fodor's, StyleTotal</div>
+    </div>
+    <div class="card card-sm">
+      <div class="card-label">Rating Promedio</div>
+      <div class="card-value">3.8<span style="font-size:16px;color:var(--muted)">/5</span></div>
+      <div class="card-desc">Aceptable pero no premium para una marca de este segmento</div>
+    </div>
+    <div class="card card-sm">
+      <div class="card-label">Sentimiento Positivo</div>
+      <div class="card-value green">45%</div>
+      <div class="card-desc">Calidad percibida, diseño, atención en tienda</div>
+    </div>
+    <div class="card card-sm">
+      <div class="card-label">Sentimiento Negativo</div>
+      <div class="card-value red">25%</div>
+      <div class="card-desc">Inconsistencias de calidad, precios volátiles, cambios confusos</div>
+    </div>
+  </div>
+
+  <div class="grid-2" style="margin-bottom:32px;">
+    <div class="chart-wrap">
+      <div class="chart-title">Distribución de Sentimiento en Reviews</div>
+      <div class="chart-canvas-wrap" style="height:280px;">
+        <canvas id="doughnutSentimiento"></canvas>
+      </div>
+    </div>
+    <div class="card" style="display:flex; flex-direction:column; justify-content:space-between;">
+      <div>
+        <div class="card-label" style="margin-bottom:16px;">Barra de Sentimiento Acumulado</div>
+        <div class="sentiment-bar" style="height:16px;">
+          <div class="sentiment-positive" style="width:45%;"></div>
+          <div class="sentiment-neutral"  style="width:30%;"></div>
+          <div class="sentiment-negative" style="width:25%;"></div>
+        </div>
+        <div style="display:flex; gap:16px; margin-top:8px; font-size:11px;">
+          <span style="color:var(--green);">■ Positivo 45%</span>
+          <span style="color:var(--yellow);">■ Neutro 30%</span>
+          <span style="color:var(--red);">■ Negativo 25%</span>
+        </div>
+      </div>
+      <div>
+        <div class="card-label" style="margin:20px 0 12px;">Plataformas de Reseñas Auditadas</div>
+        <div style="display:flex; flex-direction:column; gap:8px;">
+          <div style="display:flex; justify-content:space-between; font-size:12px; padding:6px 0; border-bottom:1px solid var(--border);">
+            <span style="color:var(--light);">Yelp</span><span style="color:var(--white);">★ 3.5/5</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; font-size:12px; padding:6px 0; border-bottom:1px solid var(--border);">
+            <span style="color:var(--light);">Wanderlog</span><span style="color:var(--white);">★ 4.0/5</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; font-size:12px; padding:6px 0; border-bottom:1px solid var(--border);">
+            <span style="color:var(--light);">Fodor's Travel</span><span style="color:var(--white);">★ 4.2/5</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; font-size:12px; padding:6px 0;">
+            <span style="color:var(--light);">StyleTotal</span><span style="color:var(--white);">★ 3.8/5</span>
+          </div>
+        </div>
+        <div style="margin-top:12px; padding:10px; background:rgba(224,74,74,.08); border:1px solid rgba(224,74,74,.2);">
+          <span style="color:var(--red); font-size:11px; letter-spacing:1px;">⚠ Sin presencia en Trustpilot ni Google Reviews formales</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title" style="margin-bottom:16px;">Issues Críticos de Reputación</div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Issue</th><th>Severidad</th><th>Evidencia</th><th>Impacto</th><th>Acción Recomendada</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Defectos de producto reportados</td>
+          <td><span class="badge badge-red">Crítica</span></td>
+          <td>Botones caídos en prendas de $220.000 ARS</td>
+          <td>Destruye la percepción premium</td>
+          <td>QC estricto + respuesta pública a reviews</td>
+        </tr>
+        <tr>
+          <td>Variación de precios semana a semana</td>
+          <td><span class="badge badge-red">Alta</span></td>
+          <td>Clientes reportaron +30% en 7 días</td>
+          <td>Pérdida de confianza y abandono de compra</td>
+          <td>Comunicar política de precios claramente</td>
+        </tr>
+        <tr>
+          <td>Política de cambios confusa</td>
+          <td><span class="badge badge-yellow">Media</span></td>
+          <td>Múltiples reviews mencionan confusión</td>
+          <td>Fricción post-compra, reduce recompra</td>
+          <td>Página dedicada clara + banner en checkout</td>
+        </tr>
+        <tr>
+          <td>Inconsistencias de tallado</td>
+          <td><span class="badge badge-yellow">Media</span></td>
+          <td>Reviews mencionan diferencias entre prendas</td>
+          <td>Devoluciones, insatisfacción, mala reputación</td>
+          <td>Tabla de talles detallada + guía de medidas</td>
+        </tr>
+        <tr>
+          <td>Ausencia en Trustpilot / Google Reviews</td>
+          <td><span class="badge badge-yellow">Media</span></td>
+          <td>Sin perfil verificado en plataformas clave</td>
+          <td>Invisible para compradores que investigan online</td>
+          <td>Crear y optimizar perfiles + solicitar reviews</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SECCIÓN 6 — COMPETIDORES
+═══════════════════════════════════════ -->
+<section class="section" id="competidores">
+  <div class="section-title">Análisis Competitivo</div>
+  <div class="section-heading">Posicionamiento vs Competidores</div>
+
+  <div class="grid-2" style="margin-bottom:32px;">
+    <div class="chart-wrap">
+      <div class="chart-title">Radar Competitivo — Presencia Digital</div>
+      <div class="chart-canvas-wrap" style="height:320px;">
+        <canvas id="radarCompetidores"></canvas>
+      </div>
+      <div class="competitor-legend">
+        <div class="legend-item"><div class="legend-dot" style="background:var(--accent);"></div> Etiqueta Negra</div>
+        <div class="legend-item"><div class="legend-dot" style="background:var(--blue);"></div> La Martina</div>
+        <div class="legend-item"><div class="legend-dot" style="background:var(--green);"></div> Rapsodia</div>
+        <div class="legend-item"><div class="legend-dot" style="background:var(--red);"></div> Jazmin Chebar</div>
+      </div>
+    </div>
+
+    <div class="chart-wrap">
+      <div class="chart-title">Comparativa de Presencia Social (Seguidores IG)</div>
+      <div class="chart-canvas-wrap" style="height:280px;">
+        <canvas id="barCompetidores"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title" style="margin-bottom:16px;">Análisis Comparativo Detallado</div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Dimensión</th>
+          <th>Etiqueta Negra</th>
+          <th>La Martina</th>
+          <th>Rapsodia</th>
+          <th>Jazmin Chebar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Instagram (followers totales)</td><td style="color:var(--accent);">~400K</td><td>~280K</td><td>~320K</td><td>~190K</td></tr>
+        <tr><td>Presencia en TikTok</td><td><span class="status-bad">✗ Mínima</span></td><td><span class="status-warn">⚠ Básica</span></td><td><span class="status-ok">✓ Activa</span></td><td><span class="status-ok">✓ Activa</span></td></tr>
+        <tr><td>Canal YouTube</td><td><span class="status-bad">✗ Sin canal</span></td><td><span class="status-warn">⚠ Limitado</span></td><td><span class="status-warn">⚠ Limitado</span></td><td><span class="status-bad">✗ Sin canal</span></td></tr>
+        <tr><td>E-commerce propio</td><td><span class="status-ok">✓ Sólido</span></td><td><span class="status-ok">✓ Sólido</span></td><td><span class="status-ok">✓ Sólido</span></td><td><span class="status-ok">✓ Sólido</span></td></tr>
+        <tr><td>Presencia internacional</td><td style="color:var(--green);">✓ NY + Bloomingdale's + Europa</td><td>✓ Global (polo)</td><td>✗ Local AR</td><td>✗ Local AR</td></tr>
+        <tr><td>Cobertura editorial</td><td style="color:var(--green);">✓ WWD, Interview, La Nación</td><td>✓ Polo magazines</td><td>⚠ Local</td><td>⚠ Local</td></tr>
+        <tr><td>Reputación online (rating)</td><td>3.8/5</td><td>~4.0/5</td><td>~4.2/5</td><td>~4.1/5</td></tr>
+        <tr><td>SEO categórico</td><td><span class="status-bad">Débil</span></td><td><span class="status-warn">Medio</span></td><td><span class="status-ok">Fuerte</span></td><td><span class="status-warn">Medio</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card" style="margin-top:24px; border-left: 3px solid var(--accent);">
+    <div class="card-label" style="margin-bottom:8px;">Conclusión de Posicionamiento</div>
+    <p style="font-size:13px; color:var(--light); line-height:1.7;">
+      Etiqueta Negra lidera en <strong style="color:var(--white);">presencia internacional y autoridad editorial</strong> dentro del segmento premium argentino.
+      Su debilidad principal está en los canales de video (TikTok, YouTube) donde competidores como Rapsodia ya tienen tracción con audiencias jóvenes.
+      La <strong style="color:var(--accent);">ventaja de precio post-aranceles</strong> (mayo 2025) es una oportunidad táctica que debe aprovecharse con campañas digitales coordinadas antes de que competidores igualen el ajuste.
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SECCIÓN 7 — DIAGNÓSTICO (FOS)
+═══════════════════════════════════════ -->
+<section class="section" id="insights">
+  <div class="section-title">Diagnóstico Digital</div>
+  <div class="section-heading">Fortalezas · Oportunidades · Problemas Críticos</div>
+
+  <div class="insights-grid">
+    <!-- FORTALEZAS -->
+    <div class="insight-section">
+      <div class="insight-header green">✓ Fortalezas — Lo que funciona bien</div>
+      <ul class="insight-list">
+        <li class="insight-item">
+          <strong>400K seguidores combinados en Instagram</strong>
+          Doble cuenta (Hombre + Mujer) con audiencias diferenciadas. Liderazgo en el segmento premium masculino argentino.
+        </li>
+        <li class="insight-item">
+          <strong>Estética de marca excepcionalmente consistente</strong>
+          Fotografía lifestyle de alta calidad. Polo, autos vintage, arquitectura. Identidad visual que refuerza el posicionamiento de lujo.
+        </li>
+        <li class="insight-item">
+          <strong>Cobertura editorial de primer nivel</strong>
+          Presence en WWD, Interview Magazine, La Nación, Clarín, Fodor's. Backlinks de alta autoridad que sustentan el SEO branded.
+        </li>
+        <li class="insight-item">
+          <strong>E-commerce propio con buena performance técnica</strong>
+          Lazy loading, responsive, Quick Shop, calculadora de envíos. Base técnica sólida para crecer en ventas online.
+        </li>
+        <li class="insight-item">
+          <strong>Presencia internacional consolidada</strong>
+          NY SoHo, Bloomingdale's (LA/San Diego/Miami), multimarca en Francia, Italia y Suiza. Proyección global que refuerza el brand value.
+        </li>
+        <li class="insight-item">
+          <strong>Ventaja competitiva coyuntural de precios</strong>
+          Rebaja del 25% (mayo 2025) por eliminación de aranceles. Único en el mercado premium. Oportunidad de captura de market share a corto plazo.
+        </li>
+        <li class="insight-item">
+          <strong>Influencer marketing documentado y activo</strong>
+          Colaboraciones con top influencers argentinas en la categoría mujer. Reach amplificado eficientemente.
+        </li>
+      </ul>
+    </div>
+
+    <!-- OPORTUNIDADES -->
+    <div class="insight-section">
+      <div class="insight-header yellow">→ Oportunidades — Potencial no explotado</div>
+      <ul class="insight-list">
+        <li class="insight-item">
+          <strong>TikTok: canal de moda más grande ignorado</strong>
+          0 presencia oficial mientras el fashion content en TikTok Argentina crece 3x por año. Los Reels existentes pueden reutilizarse sin producción adicional.
+        </li>
+        <li class="insight-item">
+          <strong>YouTube: SEO de video inexplotado</strong>
+          Sin canal oficial = sin presencia en 2do buscador mundial. Behind the scenes, campañas, artesanías del producto son contenido natural para la marca.
+        </li>
+        <li class="insight-item">
+          <strong>Pinterest: catálogo visual para fashion discovery</strong>
+          Las búsquedas de moda en Pinterest llegan a 500M usuarios/mes. Con solo 1 pin encontrado, el potencial es enorme.
+        </li>
+        <li class="insight-item">
+          <strong>Reviews de productos en el propio sitio</strong>
+          Ningún sistema de reseñas visible. Para una marca premium, el social proof en el punto de compra es uno de los mayores impulsores de conversión.
+        </li>
+        <li class="insight-item">
+          <strong>Email marketing con automatizaciones</strong>
+          Canal de más bajo costo por conversión en e-commerce. Flujos de abandono de carrito, post-compra y reengagement pueden generar ingresos inmediatos.
+        </li>
+        <li class="insight-item">
+          <strong>Blog como motor SEO categórico</strong>
+          Artículos de lifestyle (polo, moda masculina, cuidado de prendas) posicionan frente a búsquedas transaccionales que hoy no captura.
+        </li>
+        <li class="insight-item">
+          <strong>Programa de fidelización digital</strong>
+          Sin loyalty program identificado. En moda premium, el 20% de los clientes genera el 60% de los ingresos. Retenerlos vale mucho más que adquirir nuevos.
+        </li>
+      </ul>
+    </div>
+
+    <!-- PROBLEMAS CRÍTICOS -->
+    <div class="insight-section">
+      <div class="insight-header red">✗ Problemas Críticos — Requieren acción inmediata</div>
+      <ul class="insight-list">
+        <li class="insight-item">
+          <strong>Inconsistencias de calidad del producto reportadas</strong>
+          Defectos (botones caídos) en prendas de alta gama ($220.000 ARS). Destruye la percepción premium. Cada review negativa llega a miles de potenciales compradores.
+        </li>
+        <li class="insight-item">
+          <strong>Política de cambios percibida como confusa</strong>
+          Mencionada en múltiples reviews. Genera fricción post-compra y reduce la tasa de recompra. Costo de resolución: casi cero.
+        </li>
+        <li class="insight-item">
+          <strong>Volatilidad de precios sin comunicación</strong>
+          Variaciones del +30% en 7 días sin anuncio genera desconfianza. Un consumidor que ve el precio subir sin aviso no vuelve.
+        </li>
+        <li class="insight-item">
+          <strong>SEO categórico casi inexistente</strong>
+          La marca depende 100% del tráfico branded. Si Google cambia el algoritmo o un competidor lanza una campaña agresiva, la visibilidad orgánica colapsa.
+        </li>
+        <li class="insight-item">
+          <strong>Presencia en Facebook en declive relativo</strong>
+          137K likes con interacción decreciente. La plataforma pierde relevancia en 18-35 años (target de expansión). Inversión en contenido de FB tiene ROI decreciente.
+        </li>
+        <li class="insight-item">
+          <strong>Brecha generacional digital — Sin video</strong>
+          Sin TikTok ni YouTube la marca es invisible para la generación 18-28 años, que es el futuro consumidor premium. Esta brecha es difícil de recuperar cuando el hábito ya está formado con otra marca.
+        </li>
+        <li class="insight-item">
+          <strong>Sin gestión activa de reputación online</strong>
+          Ausencia en Trustpilot y Google Reviews. Reviews negativas en Yelp sin respuesta de la marca. Cada review sin respuesta amplifica el problema.
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SECCIÓN 8 — RECOMENDACIONES
+═══════════════════════════════════════ -->
+<section class="section" id="recomendaciones">
+  <div class="section-title">Plan de Acción</div>
+  <div class="section-heading">Recomendaciones Accionables & Hoja de Ruta</div>
+
+  <!-- Matriz 2x2 -->
+  <div class="section-title" style="margin-bottom:16px;">Matriz de Priorización — Impacto vs Esfuerzo</div>
+  <div style="margin-bottom:32px;">
+    <div class="matrix-axis-x">← Esfuerzo Bajo ——————————————————— Esfuerzo Alto →</div>
+    <div class="matrix-outer">
+      <div class="matrix-axis-y-wrap">
+        <div class="matrix-axis-y">↑ Impacto Alto ——— Impacto Bajo ↓</div>
+      </div>
+      <div>
+        <div class="matrix-container">
+          <!-- Q1: Alta Impacto, Bajo Esfuerzo = QUICK WINS -->
+          <div class="matrix-quadrant matrix-q1">
+            <div class="matrix-label">🟢 Quick Wins — Hacer primero</div>
+            <span class="matrix-tag">Activar TikTok con Reels existentes</span>
+            <span class="matrix-tag">Aclarar política de cambios</span>
+            <span class="matrix-tag">Integrar reviews en el sitio</span>
+            <span class="matrix-tag">Responder reviews negativas</span>
+            <span class="matrix-tag">Activar Pinterest con catálogo</span>
+            <span class="matrix-tag">Email: flujo abandono de carrito</span>
+          </div>
+          <!-- Q2: Alto Impacto, Alto Esfuerzo = PROYECTOS ESTRATÉGICOS -->
+          <div class="matrix-quadrant matrix-q2">
+            <div class="matrix-label">🔵 Proyectos Estratégicos — Planificar</div>
+            <span class="matrix-tag">Estrategia de contenido YouTube</span>
+            <span class="matrix-tag">SEO categórico + blog activo</span>
+            <span class="matrix-tag">Programa de fidelización</span>
+            <span class="matrix-tag">App móvil o PWA</span>
+            <span class="matrix-tag">Integración omnicanal</span>
+          </div>
+          <!-- Q3: Bajo Impacto, Bajo Esfuerzo = FILL-INS -->
+          <div class="matrix-quadrant matrix-q3">
+            <div class="matrix-label">⚪ Fill-ins — Cuando haya capacidad</div>
+            <span class="matrix-tag">Optimizar Pinterest visual</span>
+            <span class="matrix-tag">LinkedIn corporativo</span>
+            <span class="matrix-tag">Trustpilot / Google Reviews</span>
+            <span class="matrix-tag">Guía de talles detallada</span>
+          </div>
+          <!-- Q4: Bajo Impacto, Alto Esfuerzo = EVITAR -->
+          <div class="matrix-quadrant matrix-q4">
+            <div class="matrix-label">⬛ Evitar por ahora</div>
+            <span class="matrix-tag">Nuevos marketplaces (sin control brand)</span>
+            <span class="matrix-tag">Meta Threads (audiencia mínima AR)</span>
+            <span class="matrix-tag">Snapchat</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- Roadmap -->
+  <div class="section-title" style="margin-bottom:16px;">Hoja de Ruta de Implementación</div>
+  <div class="roadmap" style="margin-bottom:32px;">
+    <div class="roadmap-phase phase-q1">
+      <div class="roadmap-phase-title">Quick Wins</div>
+      <div class="roadmap-phase-sub">0 — 30 días · Alta prioridad</div>
+      <ul class="roadmap-items">
+        <li class="roadmap-item"><div class="roadmap-num">1</div><div>Crear cuenta TikTok oficial y publicar los Reels existentes de IG (sin costo de producción adicional)</div></li>
+        <li class="roadmap-item"><div class="roadmap-num">2</div><div>Integrar sistema de reviews de productos en el sitio web (Yotpo, Stamped.io u otro)</div></li>
+        <li class="roadmap-item"><div class="roadmap-num">3</div><div>Publicar política de cambios en homepage, footer Y durante el checkout — clara y sin ambigüedades</div></li>
+        <li class="roadmap-item"><div class="roadmap-num">4</div><div>Responder activamente a reviews en Yelp, Wanderlog y Google Maps. Crear perfil en Trustpilot.</div></li>
+        <li class="roadmap-item"><div class="roadmap-num">5</div><div>Activar Pinterest con catálogo de productos de la nueva colección</div></li>
+        <li class="roadmap-item"><div class="roadmap-num">6</div><div>Configurar flujo de email abandono de carrito (si no existe). Potencial de +8-15% en recuperación.</div></li>
+      </ul>
+    </div>
+    <div class="roadmap-phase phase-q2">
+      <div class="roadmap-phase-title">Iniciativas Mediano Plazo</div>
+      <div class="roadmap-phase-sub">1 — 3 meses · Impacto sostenido</div>
+      <ul class="roadmap-items">
+        <li class="roadmap-item"><div class="roadmap-num">7</div><div>Lanzar canal YouTube con serie editorial: behind the scenes, proceso artesanal, campañas de colección</div></li>
+        <li class="roadmap-item"><div class="roadmap-num">8</div><div>Activar blog con 2 publicaciones semanales SEO: estilo de vida, polo lifestyle, cuidado de telas premium</div></li>
+        <li class="roadmap-item"><div class="roadmap-num">9</div><div>Campaña de email marketing segmentada (clientes activos vs inactivos vs prospectos)</div></li>
+        <li class="roadmap-item"><div class="roadmap-num">10</div><div>Auditoría y optimización de Google My Business para todas las sucursales de Argentina</div></li>
+        <li class="roadmap-item"><div class="roadmap-num">11</div><div>Lanzar estrategia de UGC (User Generated Content): incentivar a clientes a publicar con hashtag oficial</div></li>
+      </ul>
+    </div>
+    <div class="roadmap-phase phase-q3">
+      <div class="roadmap-phase-title">Iniciativas Largo Plazo</div>
+      <div class="roadmap-phase-sub">3 — 6 meses · Transformación</div>
+      <ul class="roadmap-items">
+        <li class="roadmap-item"><div class="roadmap-num">12</div><div>Diseñar e implementar programa de fidelización digital: puntos, beneficios exclusivos, acceso anticipado a colecciones</div></li>
+        <li class="roadmap-item"><div class="roadmap-num">13</div><div>Desarrollar PWA (Progressive Web App) o app móvil para e-commerce con push notifications</div></li>
+        <li class="roadmap-item"><div class="roadmap-num">14</div><div>Integración omnicanal: sincronización stock online/offline, click & collect, devoluciones unificadas</div></li>
+        <li class="roadmap-item"><div class="roadmap-num">15</div><div>Implementar Google Shopping Ads + retargeting con audiencias de IG/FB/TikTok</div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SECCIÓN 9 — SCORECARD FINAL
+═══════════════════════════════════════ -->
+<section class="section" id="scorecard">
+  <div class="section-title">Evaluación Final</div>
+  <div class="section-heading">Scorecard de Salud Digital — Etiqueta Negra</div>
+
+  <div class="grid-2" style="margin-bottom:32px;">
+    <div class="chart-wrap">
+      <div class="chart-title">Radar de Salud Digital — Score por Dimensión</div>
+      <div class="chart-canvas-wrap" style="height:320px;">
+        <canvas id="radarScorecard"></canvas>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-label" style="margin-bottom:20px;">Puntaje por Dimensión</div>
+      <div id="scorecardRows"></div>
+      <div style="margin-top:20px; padding:16px; background:var(--card2); border:1px solid var(--border);">
+        <div style="font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--subtle); margin-bottom:8px;">Score Total Ponderado</div>
+        <div style="display:flex; align-items:baseline; gap:8px;">
+          <span style="font-family:'Georgia',serif; font-size:48px; color:var(--yellow); line-height:1;">55</span>
+          <span style="color:var(--muted); font-size:20px;">/100</span>
+          <span style="font-size:12px; color:var(--yellow); margin-left:8px;">Desarrollo — Potencial Alto</span>
+        </div>
+        <div style="margin-top:8px;">
+          <div class="score-bar-wrap" style="flex:unset; height:8px;">
+            <div class="score-bar" style="width:55%; background: linear-gradient(90deg, var(--red) 0%, var(--yellow) 55%);"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Benchmark -->
+  <div class="section-title" style="margin-bottom:16px;">Contexto y Benchmark</div>
+  <div class="grid-3">
+    <div class="card card-sm" style="border-color: rgba(224,74,74,.3);">
+      <div class="card-label" style="color:var(--red);">0 — 40 puntos</div>
+      <div style="font-size:13px; color:var(--light); margin-top:8px;">Presencia Digital Básica. Riesgo de invisibilidad frente a competidores.</div>
+    </div>
+    <div class="card card-sm" style="border-color: rgba(245,200,66,.3);">
+      <div class="card-label" style="color:var(--yellow);">41 — 70 puntos · EN está aquí</div>
+      <div style="font-size:13px; color:var(--light); margin-top:8px; font-weight:bold;">Presencia en Desarrollo. Base sólida con gaps importantes a resolver.</div>
+    </div>
+    <div class="card card-sm" style="border-color: rgba(76,175,130,.3);">
+      <div class="card-label" style="color:var(--green);">71 — 100 puntos</div>
+      <div style="font-size:13px; color:var(--light); margin-top:8px;">Presencia Digital Madura. Estrategia omnicanal integrada y eficiente.</div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:24px; border-left: 3px solid var(--accent);">
+    <div class="card-label" style="margin-bottom:12px;">Conclusión del Auditor</div>
+    <p style="font-size:13px; color:var(--light); line-height:1.8;">
+      Etiqueta Negra tiene una <strong style="color:var(--white);">base digital sólida</strong> pero subexplotada. El score de 55/100 refleja una marca que lidera en el segmento premium argentino con métricas sociales respetables (~400K seguidores), un e-commerce técnicamente competente y una autoridad editorial de primer nivel. Sin embargo, la ausencia en canales de video (TikTok, YouTube), un SEO categórico casi inexistente, y problemas de reputación no gestionados activamente dejan una brecha significativa frente a lo que la marca podría lograr.
+    </p>
+    <p style="font-size:13px; color:var(--light); line-height:1.8; margin-top:12px;">
+      El <strong style="color:var(--accent);">mayor riesgo estratégico</strong> es la brecha generacional: la marca es invisible para el consumidor de 18-30 años en los canales donde ese segmento descubre productos. El <strong style="color:var(--green);">mayor potencial inmediato</strong> está en las Quick Wins (TikTok + reviews + email), que pueden implementarse sin inversión significativa y con impacto medible en 60 días.
+    </p>
+    <p style="font-size:13px; color:var(--light); line-height:1.8; margin-top:12px;">
+      Con las acciones del roadmap implementadas, el score proyectado en 6 meses es <strong style="color:var(--green);">72-78/100</strong>.
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════ -->
+<footer class="footer">
+  <div class="footer-brand">Etiqueta Negra · Auditoría Digital Completa · Q1 2026</div>
+  <div class="footer-note">Análisis basado en fuentes públicas. Los datos de Instagram y campañas son estimados representativos.</div>
+</footer>
+
+<script>
+/* ══════════════════════════════════════
+   DATA
+══════════════════════════════════════ */
+const DATA = {
+  healthScores: {
+    "Sitio Web": 74,
+    "Instagram": 80,
+    "Facebook": 61,
+    "TikTok/YT/Pin": 8,
+    "SEO": 42,
+    "Reputación": 64,
+    "Contenido": 58
+  },
+  social: [
+    { icon: "📸", name: "Instagram Mujer", handle: "@etiquetanegra_m", followers: "230K", activity: "Alta", score: 82, color: "#E1306C" },
+    { icon: "📸", name: "Instagram Hombre", handle: "@etiquetanegra",   followers: "169K", activity: "Alta", score: 78, color: "#E1306C" },
+    { icon: "👥", name: "Facebook",         handle: "fb/ETIQUETANEGRA", followers: "137K", activity: "Media", score: 61, color: "#1877F2" },
+    { icon: "🎵", name: "TikTok",           handle: "—",                followers: "N/D",  activity: "Mínima", score: 15, color: "#69C9D0" },
+    { icon: "▶️",  name: "YouTube",          handle: "—",                followers: "0",    activity: "Nula",  score: 0,  color: "#FF0000" },
+    { icon: "📌", name: "Pinterest",        handle: "—",                followers: "N/D",  activity: "Nula",  score: 8,  color: "#E60023" },
+    { icon: "💼", name: "LinkedIn",         handle: "—",                followers: "N/D",  activity: "S/D",   score: null, color: "#0077B5" }
+  ]
+};
+
+/* ══════════════════════════════════════
+   NAVIGATION
+══════════════════════════════════════ */
+function showSection(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  setTimeout(initChartsForSection, 50);
+}
+
+/* ══════════════════════════════════════
+   CHART DEFAULTS
+══════════════════════════════════════ */
+const FONTS = { family: "'Arial', sans-serif", size: 11 };
+const COLORS = {
+  accent:  '#c9a96e',
+  green:   '#4caf82',
+  yellow:  '#f5c842',
+  red:     '#e04a4a',
+  blue:    '#4a90d9',
+  muted:   '#444444',
+  subtle:  '#666666',
+  border:  '#2a2a2a',
+  white:   '#f5f5f5',
+};
+
+Chart.defaults.color          = COLORS.subtle;
+Chart.defaults.borderColor    = COLORS.border;
+Chart.defaults.font.family    = FONTS.family;
+Chart.defaults.font.size      = FONTS.size;
+
+function pluginNoData(chart) {}
+
+const chartInstances = {};
+
+function makeChart(id, config) {
+  if (chartInstances[id]) { chartInstances[id].destroy(); }
+  const el = document.getElementById(id);
+  if (!el) return;
+  chartInstances[id] = new Chart(el, config);
+}
+
+/* ══════════════════════════════════════
+   BUILD SOCIAL SCORECARD HTML
+══════════════════════════════════════ */
+function buildSocialScorecard() {
+  const container = document.getElementById('socialScorecard');
+  if (!container || container.dataset.built) return;
+  container.dataset.built = '1';
+  container.innerHTML = DATA.social.map(p => {
+    const score = p.score !== null ? p.score : '—';
+    const pct   = p.score !== null ? p.score : 0;
+    const badgeClass = p.score === null ? 'badge-muted' : p.score >= 70 ? 'badge-green' : p.score >= 40 ? 'badge-yellow' : 'badge-red';
+    return `<div class="social-platform-row">
+      <div class="platform-icon">${p.icon}</div>
+      <div class="platform-name">${p.name}<br><span style="font-size:10px;color:var(--subtle);">${p.handle}</span></div>
+      <div class="platform-followers">${p.followers}</div>
+      <div class="platform-status"><span class="badge ${badgeClass}">${p.activity}</span></div>
+      <div class="platform-bar-wrap"><div class="platform-bar" style="width:${pct}%;background:${p.color};"></div></div>
+      <div class="platform-score">${score}</div>
+    </div>`;
+  }).join('');
+}
+
+/* ══════════════════════════════════════
+   BUILD SCORECARD ROWS HTML
+══════════════════════════════════════ */
+function buildScorecardRows() {
+  const container = document.getElementById('scorecardRows');
+  if (!container || container.dataset.built) return;
+  container.dataset.built = '1';
+  const entries = [
+    { label: 'Sitio Web & E-commerce', score: 74 },
+    { label: 'Instagram (ambas cuentas)', score: 80 },
+    { label: 'Facebook', score: 61 },
+    { label: 'TikTok / YouTube / Pinterest', score: 8 },
+    { label: 'SEO & Visibilidad', score: 42 },
+    { label: 'Reputación Online', score: 64 },
+    { label: 'Estrategia de Contenido', score: 58 },
+  ];
+  container.innerHTML = entries.map(e => {
+    const color = e.score >= 70 ? COLORS.green : e.score >= 50 ? COLORS.yellow : COLORS.red;
+    const status = e.score >= 70 ? '🟢' : e.score >= 50 ? '🟡' : '🔴';
+    return `<div class="score-row">
+      <div class="score-label">${e.label}</div>
+      <div class="score-bar-wrap"><div class="score-bar" style="width:${e.score}%;background:${color};"></div></div>
+      <div class="score-num">${e.score}</div>
+      <div class="score-status">${status}</div>
+    </div>`;
+  }).join('');
+}
+
+/* ══════════════════════════════════════
+   INIT ALL CHARTS
+══════════════════════════════════════ */
+let chartsInitialized = false;
+function initChartsForSection() {
+  if (chartsInitialized) return;
+  chartsInitialized = true;
+  initAllCharts();
+}
+
+function initAllCharts() {
+  buildSocialScorecard();
+  buildScorecardRows();
+
+  /* RADAR OVERVIEW */
+  makeChart('radarOverview', {
+    type: 'radar',
+    data: {
+      labels: ['Web\nE-commerce', 'Instagram', 'Facebook', 'TikTok/YT\nPinterest', 'SEO', 'Reputación', 'Contenido'],
+      datasets: [{
+        label: 'Etiqueta Negra',
+        data: [74, 80, 61, 8, 42, 64, 58],
+        backgroundColor: 'rgba(201,169,110,.15)',
+        borderColor: COLORS.accent,
+        pointBackgroundColor: COLORS.accent,
+        pointRadius: 4,
+      }, {
+        label: 'Benchmark Industria Moda',
+        data: [72, 70, 55, 45, 60, 72, 68],
+        backgroundColor: 'rgba(74,144,217,.1)',
+        borderColor: COLORS.blue,
+        borderDash: [4, 4],
+        pointBackgroundColor: COLORS.blue,
+        pointRadius: 3,
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      scales: {
+        r: {
+          min: 0, max: 100,
+          ticks: { stepSize: 25, color: COLORS.subtle, backdropColor: 'transparent', font: { size: 9 } },
+          grid: { color: COLORS.border },
+          pointLabels: { color: COLORS.light, font: { size: 10 } },
+          angleLines: { color: COLORS.border }
+        }
+      },
+      plugins: {
+        legend: { labels: { color: COLORS.light, font: { size: 11 }, boxWidth: 12 } },
+        tooltip: { callbacks: { label: ctx => ` ${ctx.dataset.label}: ${ctx.raw}/100` } }
+      }
+    }
+  });
+
+  /* BAR ALCANCE */
+  makeChart('barAlcance', {
+    type: 'bar',
+    data: {
+      labels: ['IG Mujer', 'IG Hombre', 'Facebook', 'TikTok', 'YouTube', 'Pinterest'],
+      datasets: [{
+        label: 'Seguidores / Likes',
+        data: [230000, 169000, 137600, 0, 0, 0],
+        backgroundColor: [COLORS.accent, '#a07840', COLORS.blue, '#69C9D0', '#FF0000', '#E60023'],
+        borderWidth: 0
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: { callbacks: { label: ctx => ` ${(ctx.raw/1000).toFixed(0)}K seguidores` } }
+      },
+      scales: {
+        y: { grid: { color: COLORS.border }, ticks: { callback: v => `${(v/1000).toFixed(0)}K`, color: COLORS.subtle } },
+        x: { grid: { display: false }, ticks: { color: COLORS.light } }
+      }
+    }
+  });
+
+  /* BAR WEB */
+  makeChart('barWeb', {
+    type: 'bar',
+    data: {
+      labels: ['Performance', 'Mobile', 'UX / Func.', 'SEO On-Page', 'E-commerce'],
+      datasets: [{
+        data: [74, 88, 68, 45, 72],
+        backgroundColor: [COLORS.green, COLORS.green, COLORS.yellow, COLORS.red, COLORS.green],
+        borderWidth: 0,
+        borderRadius: 0,
+      }]
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: { callbacks: { label: ctx => ` ${ctx.raw}/100` } }
+      },
+      scales: {
+        x: { min: 0, max: 100, grid: { color: COLORS.border }, ticks: { color: COLORS.subtle } },
+        y: { grid: { display: false }, ticks: { color: COLORS.light } }
+      }
+    }
+  });
+
+  /* DOUGHNUT DEVICES */
+  makeChart('doughnutDevices', {
+    type: 'doughnut',
+    data: {
+      labels: ['Mobile', 'Desktop', 'Tablet'],
+      datasets: [{ data: [78, 18, 4], backgroundColor: [COLORS.accent, COLORS.blue, COLORS.subtle], borderWidth: 0 }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      cutout: '65%',
+      plugins: {
+        legend: { position: 'bottom', labels: { color: COLORS.light, padding: 16, boxWidth: 10 } },
+        tooltip: { callbacks: { label: ctx => ` ${ctx.label}: ${ctx.raw}%` } }
+      }
+    }
+  });
+
+  /* DOUGHNUT AUDIENCIA */
+  makeChart('doughnutAudiencia', {
+    type: 'doughnut',
+    data: {
+      labels: ['IG Mujer (230K)', 'IG Hombre (169K)', 'Facebook (138K)'],
+      datasets: [{ data: [43, 31, 26], backgroundColor: [COLORS.accent, '#a07840', COLORS.blue], borderWidth: 0 }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      cutout: '60%',
+      plugins: {
+        legend: { position: 'bottom', labels: { color: COLORS.light, padding: 16, boxWidth: 10 } },
+        tooltip: { callbacks: { label: ctx => ` ${ctx.label}: ${ctx.raw}%` } }
+      }
+    }
+  });
+
+  /* BAR CONTENIDO */
+  makeChart('barContenido', {
+    type: 'bar',
+    data: {
+      labels: ['Reels', 'Carousels', 'Single Post', 'Stories'],
+      datasets: [
+        { label: 'IG Hombre', data: [35, 30, 20, 40], backgroundColor: 'rgba(201,169,110,.7)', borderWidth: 0 },
+        { label: 'IG Mujer',  data: [42, 28, 18, 50], backgroundColor: 'rgba(201,169,110,.3)', borderWidth: 0 }
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { labels: { color: COLORS.light, boxWidth: 10 } },
+        tooltip: { callbacks: { label: ctx => ` ${ctx.dataset.label}: ~${ctx.raw} posts/trimestre` } }
+      },
+      scales: {
+        y: { grid: { color: COLORS.border }, ticks: { color: COLORS.subtle } },
+        x: { grid: { display: false }, ticks: { color: COLORS.light } }
+      }
+    }
+  });
+
+  /* BAR SEO */
+  makeChart('barSEO', {
+    type: 'bar',
+    data: {
+      labels: ['Búsquedas Branded', 'Búsquedas Locales', 'Búsquedas Categóricas', 'Búsquedas en Video', 'Búsquedas Visuales (Pin)'],
+      datasets: [{
+        label: 'Visibilidad Estimada',
+        data: [78, 52, 18, 0, 5],
+        backgroundColor: [COLORS.green, COLORS.yellow, COLORS.red, COLORS.red, COLORS.red],
+        borderWidth: 0
+      }]
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: { callbacks: { label: ctx => ` ${ctx.raw}/100` } }
+      },
+      scales: {
+        x: { min: 0, max: 100, grid: { color: COLORS.border }, ticks: { color: COLORS.subtle } },
+        y: { grid: { display: false }, ticks: { color: COLORS.light, font: { size: 10 } } }
+      }
+    }
+  });
+
+  /* RADAR SEO */
+  makeChart('radarSEO', {
+    type: 'radar',
+    data: {
+      labels: ['Branded', 'Editorial\nBacklinks', 'Directorios', 'Marketplaces', 'Blog/Contenido', 'Video', 'Búsq. Visual'],
+      datasets: [{
+        label: 'Presencia actual',
+        data: [78, 85, 55, 45, 20, 0, 5],
+        backgroundColor: 'rgba(201,169,110,.12)',
+        borderColor: COLORS.accent,
+        pointBackgroundColor: COLORS.accent,
+        pointRadius: 3,
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      scales: {
+        r: {
+          min: 0, max: 100,
+          ticks: { stepSize: 25, backdropColor: 'transparent', color: COLORS.subtle, font: { size: 9 } },
+          grid: { color: COLORS.border },
+          pointLabels: { color: COLORS.light, font: { size: 10 } },
+          angleLines: { color: COLORS.border }
+        }
+      },
+      plugins: { legend: { display: false } }
+    }
+  });
+
+  /* DOUGHNUT SENTIMIENTO */
+  makeChart('doughnutSentimiento', {
+    type: 'doughnut',
+    data: {
+      labels: ['Positivo (45%)', 'Neutro (30%)', 'Negativo (25%)'],
+      datasets: [{ data: [45, 30, 25], backgroundColor: [COLORS.green, COLORS.yellow, COLORS.red], borderWidth: 0 }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      cutout: '60%',
+      plugins: {
+        legend: { position: 'bottom', labels: { color: COLORS.light, padding: 16, boxWidth: 10 } }
+      }
+    }
+  });
+
+  /* RADAR COMPETIDORES */
+  makeChart('radarCompetidores', {
+    type: 'radar',
+    data: {
+      labels: ['Social Media', 'E-commerce', 'SEO', 'Reputación', 'Presencia Intl.', 'Innovación Digital'],
+      datasets: [
+        { label: 'Etiqueta Negra', data: [80, 74, 42, 64, 90, 35], backgroundColor: 'rgba(201,169,110,.15)', borderColor: COLORS.accent, pointBackgroundColor: COLORS.accent, pointRadius: 4 },
+        { label: 'La Martina',     data: [65, 78, 60, 72, 85, 50], backgroundColor: 'rgba(74,144,217,.1)',   borderColor: COLORS.blue,   pointBackgroundColor: COLORS.blue,   pointRadius: 3, borderDash: [4,3] },
+        { label: 'Rapsodia',       data: [72, 80, 70, 76, 30, 68], backgroundColor: 'rgba(76,175,130,.1)',   borderColor: COLORS.green,  pointBackgroundColor: COLORS.green,  pointRadius: 3, borderDash: [2,3] },
+        { label: 'Jazmin Chebar',  data: [68, 75, 55, 74, 28, 60], backgroundColor: 'rgba(224,74,74,.08)',   borderColor: COLORS.red,    pointBackgroundColor: COLORS.red,    pointRadius: 3, borderDash: [6,3] }
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      scales: {
+        r: {
+          min: 0, max: 100,
+          ticks: { stepSize: 25, backdropColor: 'transparent', color: COLORS.subtle, font: { size: 9 } },
+          grid: { color: COLORS.border },
+          pointLabels: { color: COLORS.light, font: { size: 10 } },
+          angleLines: { color: COLORS.border }
+        }
+      },
+      plugins: { legend: { display: false } }
+    }
+  });
+
+  /* BAR COMPETIDORES */
+  makeChart('barCompetidores', {
+    type: 'bar',
+    data: {
+      labels: ['Etiqueta Negra\n(Mujer)', 'Etiqueta Negra\n(Hombre)', 'Rapsodia', 'La Martina', 'Jazmin Chebar'],
+      datasets: [{
+        label: 'Seguidores Instagram',
+        data: [230, 169, 320, 280, 190],
+        backgroundColor: [COLORS.accent, '#a07840', COLORS.green, COLORS.blue, COLORS.red],
+        borderWidth: 0
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: { callbacks: { label: ctx => ` ${ctx.raw}K seguidores` } }
+      },
+      scales: {
+        y: { grid: { color: COLORS.border }, ticks: { callback: v => `${v}K`, color: COLORS.subtle } },
+        x: { grid: { display: false }, ticks: { color: COLORS.light, font: { size: 10 } } }
+      }
+    }
+  });
+
+  /* RADAR SCORECARD */
+  makeChart('radarScorecard', {
+    type: 'radar',
+    data: {
+      labels: ['Web &\nE-commerce', 'Instagram', 'Facebook', 'TikTok/YT\nPinterest', 'SEO', 'Reputación', 'Contenido'],
+      datasets: [
+        {
+          label: 'Score Actual',
+          data: [74, 80, 61, 8, 42, 64, 58],
+          backgroundColor: 'rgba(201,169,110,.18)',
+          borderColor: COLORS.accent,
+          pointBackgroundColor: COLORS.accent,
+          pointRadius: 4,
+        },
+        {
+          label: 'Score Proyectado (6 meses)',
+          data: [80, 85, 65, 55, 65, 76, 72],
+          backgroundColor: 'rgba(76,175,130,.1)',
+          borderColor: COLORS.green,
+          borderDash: [5, 3],
+          pointBackgroundColor: COLORS.green,
+          pointRadius: 3,
+        }
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      scales: {
+        r: {
+          min: 0, max: 100,
+          ticks: { stepSize: 25, backdropColor: 'transparent', color: COLORS.subtle, font: { size: 9 } },
+          grid: { color: COLORS.border },
+          pointLabels: { color: COLORS.light, font: { size: 10 } },
+          angleLines: { color: COLORS.border }
+        }
+      },
+      plugins: {
+        legend: { labels: { color: COLORS.light, font: { size: 11 }, boxWidth: 12 } },
+        tooltip: { callbacks: { label: ctx => ` ${ctx.dataset.label}: ${ctx.raw}/100` } }
+      }
+    }
+  });
+}
+
+/* ══════════════════════════════════════
+   SOCIAL FODA — SUB-TABS & ACCORDIONS
+══════════════════════════════════════ */
+function showSocialNet(net, tabEl) {
+  // Desactivar todos los paneles y tabs
+  document.querySelectorAll('.social-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.social-subnav-tab').forEach(t => t.classList.remove('active'));
+  // Activar el panel y tab seleccionados
+  const panel = document.getElementById('sp-' + net);
+  if (panel) panel.classList.add('active');
+  if (tabEl) tabEl.classList.add('active');
+}
+
+function toggleAccordion(headerEl) {
+  const item = headerEl.closest('.accordion-item');
+  const body = item.querySelector('.accordion-body');
+  const isOpen = item.classList.contains('open');
+  if (isOpen) {
+    item.classList.remove('open');
+    body.style.maxHeight = '0';
+  } else {
+    item.classList.add('open');
+    body.style.maxHeight = body.scrollHeight + 200 + 'px';
+  }
+}
+
+function initSocialAccordions() {
+  // Ajustar max-height de los accordions que arrancan abiertos
+  document.querySelectorAll('.accordion-item.open .accordion-body').forEach(body => {
+    body.style.maxHeight = body.scrollHeight + 200 + 'px';
+  });
+}
+
+/* ══════════════════════════════════════
+   INIT ON LOAD
+══════════════════════════════════════ */
+window.addEventListener('DOMContentLoaded', () => {
+  buildSocialScorecard();
+  buildScorecardRows();
+  initAllCharts();
+  initSocialAccordions();
+});
+</script>
+</body>
+</html>
